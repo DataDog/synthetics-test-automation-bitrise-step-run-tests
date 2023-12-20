@@ -63,28 +63,57 @@ type_tags:
 
 toolkit:
   bash:
-    entry_file: step.sh
+    entry_file: ./src/scripts/run-test.sh
 
 
 inputs:
-  - example_step_input: Default Value - you can leave this empty if you want to
-    opts:
-      title: "Example Step Input"
-      summary: Summary. No more than 2-3 sentences.
-      description: |
-        Description of this input.
+  # - example_step_input: Default Value - you can leave this empty if you want to
+  #   opts:
+  #     title: "Example Step Input"
+  #     summary: Summary. No more than 2-3 sentences.
+  #     description: |
+  #       Description of this input.
 
-        Can be Markdown formatted text.
+  #       Can be Markdown formatted text.
+  #     is_expand: true
+  #     is_required: true
+  #     value_options: []
+  - api_key: $DATADOG_API_KEY
+    opts:
+      title: "Datadog API Key"
+      description: The name of the environment variable containing the API key.
       is_expand: true
       is_required: true
-      value_options: []
-
-outputs:
-  - EXAMPLE_STEP_OUTPUT:
+  - app_key: $DATADOG_APP_KEY
     opts:
-      title: "Example Step Output"
-      summary: Summary. No more than 2-3 sentences.
-      description: |
-        Description of this output.
+      title: "Datadog APP Key"
+      description: The name of the environment variable containing the APP key.
+      is_expand: true
+      is_required: true
+  - background: false
+    opts:
+      title: "Run in Background"
+      description: Whether or not this step should run in the background.
+  - config_path: ''
+    opts:
+      title: "Config Path"
+      description: The global JSON configuration used when launching tests.
+  - fail_on_critical_errors: false
+    opts:
+      title: "Fail on critical errors"
+      description: Fail if tests were not triggered or results could not be fetched.
+  - fail_on_missing_tests: false
+    opts:
+      title: "Fail on missing tests"
+      description: Fail if at least one specified test with a public ID (using `public_ids` or listed in a test file) is missing in a run (for example, if it has been deleted programmatically or on the Datadog site).
+  
 
-        Can be Markdown formatted text.
+# outputs:
+#   - EXAMPLE_STEP_OUTPUT:
+#     opts:
+#       title: "Example Step Output"
+#       summary: Summary. No more than 2-3 sentences.
+#       description: |
+#         Description of this output.
+
+#         Can be Markdown formatted text.
