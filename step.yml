@@ -106,7 +106,54 @@ inputs:
     opts:
       title: "Fail on missing tests"
       description: Fail if at least one specified test with a public ID (using `public_ids` or listed in a test file) is missing in a run (for example, if it has been deleted programmatically or on the Datadog site).
-  
+  - fail_on_timeout: true
+    opts:
+      title: "Fail on Timeout"
+      description: Force the CI to fail (or pass) if one of the results exceeds its test timeout.
+  - files: ''
+    opts:
+      title: "Files"
+      description: Glob pattern to detect Synthetic tests config files.
+  - junit_report: ''
+    opts:
+      title: "Junit Report"
+      description: The filename for a JUnit report if you want to generate one.
+  - locations: ''
+    opts:
+      title: "Locations"
+      description: String of locations separated by semicolons to override the locations where your tests run.
+  - no_output_timeout: '30m'
+    opts:
+      title: "No Output Timeout"
+      description: Elapsed time the command can run without output.
+  - polling_timeout: 1800000
+    opts:
+      title: "Polling Timeout"
+      description: The duration (in milliseconds) after which the action stops polling for test results.
+  - public_ids: ''
+    opts:
+      title: "Public Ids"
+      description: String of public IDs separated by commas for Synthetic tests you want to trigger.
+  - site: 'datadoghq.com'
+    opts:
+      title: "Site"
+      description: The Datadog site to send data to. If the `DD_SITE` environment variable is set, it takes preference.
+  - subdomain: 'app'
+    opts:
+      title: "Subdomain"
+      description: The name of the custom subdomain set to access your Datadog application.
+  - test_search_query: ''
+    opts:
+      title: "Test Search Query"
+      description: Trigger tests corresponding to a search query.
+  - tunnel: false
+    opts:
+      title: "Tunnel"
+      description: Use the testing tunnel to trigger tests.
+  - variables: ''
+    opts:
+      title: "Variables"
+      description: Key-value pairs for injecting variables into tests. Must be formatted using `KEY=VALUE`.
 
 outputs:
   - EXAMPLE_STEP_OUTPUT:
