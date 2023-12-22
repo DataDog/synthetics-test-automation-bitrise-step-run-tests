@@ -73,14 +73,13 @@ RunTests() {
     DATADOG_APP_KEY="${PARAM_APP_KEY}" \
     DATADOG_SUBDOMAIN="${PARAM_SUBDOMAIN}" \
     DATADOG_SITE="${PARAM_SITE}" \
-    DATADOG_SYNTHETICS_CI_TRIGGER_APP="bitrise" \
+    DATADOG_SYNTHETICS_CI_TRIGGER_APP="bitrise_step" \
         $DATADOG_CI_COMMAND synthetics run-tests \
         "${args[@]}"
 }
 
 # Will not run if sourced for bats-core tests.
 # View src/tests for more information.
-BITRISE_TEST_ENV="bats-core"
-if [ "${0#*$BITRISE_TEST_ENV}" == "$0" ]; then
+if [ $BITRISE_TEST_ENV != true ]; then
     RunTests
 fi

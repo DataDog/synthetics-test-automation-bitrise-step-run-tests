@@ -14,21 +14,6 @@ app:
 workflows:
   test:
     steps:
-    - datadog-mobile-app-run-tests@1:
-      inputs:
-        - api_key: $DATADOG_API_KEY
-        - app_key: $DATADOG_APP_KEY
-        - test_search_query: "type:mobile env:prod"
-        - mobile_application_version_file_path: path/to/application.ipa
-    - datadog-mobile-app-upload@1:
-      inputs:
-        - api_key: $DATADOG_API_KEY
-        - app_key: $DATADOG_APP_KEY
-        - version_name: "Version $BITRISE_BUILD_NUMBER"
-        - mobile_application_id: "<your_application_id>"
-        - mobile_application_version_file_path: path/to/application.ipa
-        - latest: true
-
     - script:
         inputs:
         - content: |

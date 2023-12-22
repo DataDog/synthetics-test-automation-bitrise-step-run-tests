@@ -1,7 +1,9 @@
 # Runs prior to every test
 setup() {
     # Load our script file.
-    source ./src/scripts/run-tests.sh
+    export BITRISE_TEST_ENV=true
+    source ./src/scripts/run-tests.sh 
+    export BITRISE_TEST_ENV=false  # put this here with the idea that it would set the env var to false after the tests are run so that if i run just the shell script after it will actaully run it
 }
 
 DIFF_ARGS="-u --label actual --label expected"
