@@ -98,6 +98,10 @@ inputs:
     opts:
       title: "Config Path"
       description: The global JSON configuration used when launching tests.
+  - device_ids: ''
+    opts:
+      title: "Device Ids"
+      description: Override the mobile device(s) to run your mobile test.
   - fail_on_critical_errors: false
     opts:
       title: "Fail on critical errors"
@@ -122,6 +126,14 @@ inputs:
     opts:
       title: "Locations"
       description: String of locations separated by semicolons to override the locations where your tests run.
+  - mobile_application_version: ''
+    opts:
+      title: "Mobile Application Version"
+      description: Override the default mobile application version to test a new version within Datadog. The version must be uploaded and available within Datadog.
+  - mobile_application_version_file_path: ''
+    opts:
+      title: "Mobile Application Version File Path"
+      description: Override the mobile application with a local or recently built application.
   - no_output_timeout: '30m'
     opts:
       title: "No Output Timeout"
