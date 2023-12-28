@@ -81,23 +81,24 @@ inputs:
   - api_key: $DATADOG_API_KEY
     opts:
       title: "Datadog API Key"
-      description: The name of the environment variable containing the API key.
+      description: The API key used to query the Datadog API.
       is_expand: true
       is_required: true
   - app_key: $DATADOG_APP_KEY
     opts:
       title: "Datadog APP Key"
-      description: The name of the environment variable containing the APP key.
+      description: The application key used to query the Datadog API.
       is_expand: true
       is_required: true
   - background: false
     opts:
       title: "Run in Background"
-      description: Whether or not this step should run in the background.
+      description: Whether or not this step should run in the background.  # this one is missing in the options for the command
   - config_path: ''
     opts:
       title: "Config Path"
-      description: The global JSON configuration used when launching tests.
+      description: The global JSON configuration used when launching tests.  # Think this one is actually better like this
+      # description: Pass a path to a global configuration file.
   - device_ids: ''
     opts:
       title: "Device Ids"
@@ -105,27 +106,29 @@ inputs:
   - fail_on_critical_errors: false
     opts:
       title: "Fail on critical errors"
-      description: Fail if tests were not triggered or results could not be fetched.
+      description: A boolean flag that fails the CI job if no tests were triggered, or results could not be fetched from Datadog.
   - fail_on_missing_tests: false
     opts:
       title: "Fail on missing tests"
-      description: Fail if at least one specified test with a public ID (using `public_ids` or listed in a test file) is missing in a run (for example, if it has been deleted programmatically or on the Datadog site).
+      # description: Fail if at least one specified test with a public ID (using `public_ids` or listed in a test file) is missing in a run (for example, if it has been deleted programmatically or on the Datadog site).
+      description: A boolean flag that fails the CI job if at least one specified test with a public ID (a \`--public-id\` CLI argument or listed in a test file is missing in a run (for example, if it has been deleted programmatically or on the Datadog site).  # Not sure which one i prefer here
   - fail_on_timeout: true
     opts:
       title: "Fail on Timeout"
-      description: Force the CI to fail (or pass) if one of the results exceeds its test timeout.
+      description: A boolean flag that fails the CI job if at least one test exceeds the default test timeout.
   - files: ''
     opts:
       title: "Files"
-      description: Glob pattern to detect Synthetic tests config files.
+      description: Glob pattern to detect Synthetic test configuration files.
   - junit_report: ''
     opts:
       title: "Junit Report"
-      description: The filename for a JUnit report if you want to generate one.
+      description: The filename for a JUnit report if you want to generate one.  # Think this one is actually better like this
+      # description: Pass a path to a JUnit report file.
   - locations: ''
     opts:
       title: "Locations"
-      description: String of locations separated by semicolons to override the locations where your tests run.
+      description: String of locations separated by semicolons to override the locations where your tests run.  # this one is missing in the options for the command
   - mobile_application_version: ''
     opts:
       title: "Mobile Application Version"
@@ -137,35 +140,39 @@ inputs:
   - no_output_timeout: '30m'
     opts:
       title: "No Output Timeout"
-      description: Elapsed time the command can run without output.
+      description: Elapsed time the command can run without output.  # this one is missing in the options for the command
   - polling_timeout: 1800000
     opts:
       title: "Polling Timeout"
-      description: The duration (in milliseconds) after which the action stops polling for test results.
+      description: The duration (in milliseconds) after which `datadog-ci` stops polling for test results. The default is 30 minutes. At the CI level, test results completed after this duration are considered failed.'
   - public_ids: ''
     opts:
       title: "Public Ids"
-      description: String of public IDs separated by commas for Synthetic tests you want to trigger.
+      description: String of public IDs separated by commas for Synthetic tests you want to trigger.  # Think this one is actually better like this
+      # description: Specify a test to run.
   - site: 'datadoghq.com'
     opts:
       title: "Site"
-      description: The Datadog site to send data to. If the `DD_SITE` environment variable is set, it takes preference.
+      description: The Datadog site to send data to. If the `DD_SITE` environment variable is set, it takes preference.  # maybe a mix of both here would be best
+      # description: The Datadog instance to which request is sent.
   - subdomain: 'app'
     opts:
       title: "Subdomain"
-      description: The name of the custom subdomain set to access your Datadog application.
+      description: The name of the custom subdomain set to access your Datadog application. If the URL used to access Datadog is `myorg.datadoghq.com`, the `subdomain` value needs to be set to `myorg`.
   - test_search_query: ''
     opts:
       title: "Test Search Query"
-      description: Trigger tests corresponding to a search query.
+      description: Pass a query to select which Synthetic tests to run.
   - tunnel: false
     opts:
       title: "Tunnel"
-      description: Use the testing tunnel to trigger tests.
+      # description: Use the testing tunnel to trigger tests.
+      description: Use the Continuous Testing Tunnel to execute your test batch.
   - variables: ''
     opts:
       title: "Variables"
-      description: Key-value pairs for injecting variables into tests. Must be formatted using `KEY=VALUE`.
+      description: Key-value pairs for injecting variables into tests. Must be formatted using `KEY=VALUE`.  # Think this one is actually better like this
+      # description: Pass a variable override.
 
 outputs:
   - EXAMPLE_STEP_OUTPUT:
