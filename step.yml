@@ -84,12 +84,14 @@ inputs:
       description: The API key used to query the Datadog API.
       is_expand: true
       is_required: true
+      is_sensitive: true
   - app_key: $DATADOG_APP_KEY
     opts:
       title: "Datadog APP Key"
       description: The application key used to query the Datadog API.
       is_expand: true
       is_required: true
+      is_sensitive: true
   - background: false
     opts:
       title: "Run in Background"
