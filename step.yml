@@ -92,10 +92,6 @@ inputs:
       is_expand: true
       is_required: true
       is_sensitive: true
-  - background: false
-    opts:
-      title: "Run in Background"
-      description: Whether or not this step should run in the background.  # this one is missing in the options for the command
   - config_path: ''
     opts:
       title: "Config Path"
@@ -139,10 +135,6 @@ inputs:
     opts:
       title: "Mobile Application Version File Path"
       description: Override the mobile application with a local or recently built application.
-  - no_output_timeout: '30m'
-    opts:
-      title: "No Output Timeout"
-      description: Elapsed time the command can run without output.  # this one is missing in the options for the command
   - polling_timeout: 1800000
     opts:
       title: "Polling Timeout"
