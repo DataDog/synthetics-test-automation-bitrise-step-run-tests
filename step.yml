@@ -94,12 +94,11 @@ inputs:
       is_sensitive: true
   - config_path: ''
     opts:
-      title: "Config Path"
-      description: The global JSON configuration used when launching tests.  # Think this one is actually better like this
-      # description: Pass a path to a global configuration file.
+      title: "Global JSON configuration"
+      description: The global JSON configuration used when launching tests.
   - device_ids: ''
     opts:
-      title: "Device Ids"
+      title: "Device IDs"
       description: Override the mobile device(s) to run your mobile test.
   - fail_on_critical_errors: false
     opts:
@@ -108,21 +107,19 @@ inputs:
   - fail_on_missing_tests: false
     opts:
       title: "Fail on missing tests"
-      # description: Fail if at least one specified test with a public ID (using `public_ids` or listed in a test file) is missing in a run (for example, if it has been deleted programmatically or on the Datadog site).
-      description: A boolean flag that fails the CI job if at least one specified test with a public ID (a \`--public-id\` CLI argument or listed in a test file is missing in a run (for example, if it has been deleted programmatically or on the Datadog site).  # Not sure which one i prefer here
+      description: Fail if at least one specified test with a public ID (using `public_ids` or listed in a test file) is missing in a run (for example, if it has been deleted programmatically or on the Datadog site).
   - fail_on_timeout: true
     opts:
-      title: "Fail on Timeout"
+      title: "Fail on timeout"
       description: A boolean flag that fails the CI job if at least one test exceeds the default test timeout.
   - files: ''
     opts:
-      title: "Files"
+      title: "Synthetic test config files"
       description: Glob pattern to detect Synthetic test configuration files.
   - junit_report: ''
     opts:
-      title: "Junit Report"
-      description: The filename for a JUnit report if you want to generate one.  # Think this one is actually better like this
-      # description: Pass a path to a JUnit report file.
+      title: "JUnit Report"
+      description: The filename for a JUnit report if you want to generate one.
   - locations: ''
     opts:
       title: "Locations"
@@ -141,17 +138,15 @@ inputs:
       description: The duration (in milliseconds) after which `datadog-ci` stops polling for test results. The default is 30 minutes. At the CI level, test results completed after this duration are considered failed.'
   - public_ids: ''
     opts:
-      title: "Public Ids"
-      description: String of public IDs separated by commas for Synthetic tests you want to trigger.  # Think this one is actually better like this
-      # description: Specify a test to run.
+      title: "Synthetic test IDs"
+      description: String of test IDs separated by commas for Synthetic tests you want to trigger.
   - site: 'datadoghq.com'
     opts:
-      title: "Site"
-      description: The Datadog site to send data to. If the `DD_SITE` environment variable is set, it takes preference.  # maybe a mix of both here would be best
-      # description: The Datadog instance to which request is sent.
+      title: "Datadog Site"
+      description: The Datadog site to send data to. If the `DD_SITE` environment variable is set, it takes preference.
   - subdomain: 'app'
     opts:
-      title: "Subdomain"
+      title: "Custom subdomain"
       description: The name of the custom subdomain set to access your Datadog application. If the URL used to access Datadog is `myorg.datadoghq.com`, the `subdomain` value needs to be set to `myorg`.
   - test_search_query: ''
     opts:
@@ -160,13 +155,11 @@ inputs:
   - tunnel: false
     opts:
       title: "Tunnel"
-      # description: Use the testing tunnel to trigger tests.
       description: Use the Continuous Testing Tunnel to execute your test batch.
   - variables: ''
     opts:
       title: "Variables"
-      description: Key-value pairs for injecting variables into tests. Must be formatted using `KEY=VALUE`.  # Think this one is actually better like this
-      # description: Pass a variable override.
+      description: Key-value pairs for injecting variables into tests. Must be formatted using `KEY=VALUE`.
 
 outputs:
   - EXAMPLE_STEP_OUTPUT:
