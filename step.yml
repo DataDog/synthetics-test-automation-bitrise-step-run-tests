@@ -67,17 +67,6 @@ toolkit:
 
 
 inputs:
-  - example_step_input: Default Value - you can leave this empty if you want to
-    opts:
-      title: "Example Step Input"
-      summary: Summary. No more than 2-3 sentences.
-      description: |
-        Description of this input.
-
-        Can be Markdown formatted text.
-      is_expand: true
-      is_required: true
-      value_options: []
   - api_key: $DATADOG_API_KEY
     opts:
       title: "Datadog API Key"
@@ -160,13 +149,3 @@ inputs:
     opts:
       title: "Variables"
       description: Key-value pairs for injecting variables into tests. Must be formatted using `KEY=VALUE`.
-
-outputs:
-  - EXAMPLE_STEP_OUTPUT:
-    opts:
-      title: "Example Step Output"
-      summary: Summary. No more than 2-3 sentences.
-      description: |
-        Description of this output.
-
-        Can be Markdown formatted text.
