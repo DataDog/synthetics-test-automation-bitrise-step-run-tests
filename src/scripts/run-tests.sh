@@ -64,19 +64,19 @@ RunTests() {
         done
         unset IFS
     fi
-    if [[ -n $PARAM_MOBILE_APPLICATION_VERSION ]]; then
-        args+=(--mobileApplicationVersion "${PARAM_MOBILE_APPLICATION_VERSION}")
-    fi
+    # if [[ -n $PARAM_MOBILE_APPLICATION_VERSION ]]; then
+    #     args+=(--mobileApplicationVersion "${PARAM_MOBILE_APPLICATION_VERSION}")
+    # fi
     if [[ -n $PARAM_MOBILE_APPLICATION_FILE_PATH ]]; then
         args+=(--mobileApplicationFilePath "${PARAM_MOBILE_APPLICATION_FILE_PATH}")
     fi
-    if [[ -n $PARAM_DEVICE_IDS ]]; then  # this option is missing in the command
-        IFS=$'\n,'
-        for device_id in ${PARAM_DEVICE_IDS}; do
-            args+=(--device-id "${device_id}")
-        done
-        unset IFS
-    fi
+    # if [[ -n $PARAM_DEVICE_IDS ]]; then  # this option is missing in the command
+    #     IFS=$'\n,'
+    #     for device_id in ${PARAM_DEVICE_IDS}; do
+    #         args+=(--device-id "${device_id}")
+    #     done
+    #     unset IFS
+    # fi
 
     if [[ -n $PARAM_LOCATIONS ]]; then
         export DATADOG_SYNTHETICS_LOCATIONS="${PARAM_LOCATIONS}"
