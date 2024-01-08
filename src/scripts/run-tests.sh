@@ -1,9 +1,9 @@
 RunTests() {
-    PARAM_API_KEY=$(eval echo "\$$PARAM_API_KEY")
-    PARAM_APP_KEY=$(eval echo "\$$PARAM_APP_KEY")
+    PARAM_API_KEY=$(eval echo "\$$api_key")
+    PARAM_APP_KEY=$(eval echo "\$$app_key")
 
     if [[ -n "${DD_SITE}" ]]; then
-        PARAM_SITE=${DD_SITE}
+        site=${DD_SITE}
     fi
 
     DATADOG_CI_VERSION="2.25.0"
@@ -17,75 +17,75 @@ RunTests() {
     fi
 
     args=()
-    if [[ $PARAM_FAIL_ON_CRITICAL_ERRORS == "1" ]]; then
+    if [[ $fail_on_critical_errors == "1" ]]; then
         args+=(--failOnCriticalErrors)
     fi
-    if [[ $PARAM_FAIL_ON_MISSING_TESTS == "1" ]]; then
+    if [[ $fail_on_missing_tests == "1" ]]; then
         args+=(--failOnMissingTests)
     fi
-    if [[ $PARAM_FAIL_ON_TIMEOUT == "1" ]]; then
+    if [[ $fail_on_timeout == "1" ]]; then
         args+=(--failOnTimeout)
     else
         args+=(--no-failOnTimeout)
     fi
-    if [[ $PARAM_TUNNEL == "1" ]]; then
+    if [[ $tunnel == "1" ]]; then
         args+=(--tunnel)
     fi
-    if [[ -n $PARAM_CONFIG_PATH ]]; then
-        args+=(--config "${PARAM_CONFIG_PATH}")
+    if [[ -n $config_path ]]; then
+        args+=(--config "${config_path}")
     fi
-    if [[ -n $PARAM_FILES ]]; then
+    if [[ -n $files ]]; then
         IFS=$'\n'
-        for file in ${PARAM_FILES}; do
+        for file in ${files}; do
             args+=(--files "${file}")
         done
         unset IFS
     fi
-    if [[ -n $PARAM_JUNIT_REPORT ]]; then
-        args+=(--jUnitReport "${PARAM_JUNIT_REPORT}")
+    if [[ -n $junit_report ]]; then
+        args+=(--jUnitReport "${junit_report}")
     fi
-    if [[ -n $PARAM_POLLING_TIMEOUT ]]; then
-        args+=(--pollingTimeout "${PARAM_POLLING_TIMEOUT}")
+    if [[ -n $polling_timeout ]]; then
+        args+=(--pollingTimeout "${polling_timeout}")
     fi
-    if [[ -n $PARAM_PUBLIC_IDS ]]; then
+    if [[ -n $public_ids ]]; then
         IFS=$'\n,'
-        for public_id in ${PARAM_PUBLIC_IDS}; do
+        for public_id in ${public_ids}; do
             args+=(--public-id "${public_id}")
         done
         unset IFS
     fi
-    if [[ -n $PARAM_TEST_SEARCH_QUERY ]]; then
-        args+=(--search "${PARAM_TEST_SEARCH_QUERY}")
+    if [[ -n $test_search_query ]]; then
+        args+=(--search "${test_search_query}")
     fi
-    if [[ -n $PARAM_VARIABLES ]]; then
+    if [[ -n $variables ]]; then
         IFS=$'\n,'
-        for variable in ${PARAM_VARIABLES}; do
+        for variable in ${variables}; do
             args+=(--variable "${variable}")
         done
         unset IFS
     fi
-    # if [[ -n $PARAM_MOBILE_APPLICATION_VERSION ]]; then
-    #     args+=(--mobileApplicationVersion "${PARAM_MOBILE_APPLICATION_VERSION}")
+    # if [[ -n $mobile_application_version ]]; then
+    #     args+=(--mobileApplicationVersion "${mobile_application_version}")
     # fi
-    if [[ -n $PARAM_MOBILE_APPLICATION_VERSION_FILE_PATH ]]; then
-        args+=(--mobileApplicationVersionFilePath "${PARAM_MOBILE_APPLICATION_VERSION_FILE_PATH}")
+    if [[ -n $mobile_application_version_file_path ]]; then
+        args+=(--mobileApplicationVersionFilePath "${mobile_application_version_file_path}")
     fi
-    # if [[ -n $PARAM_DEVICE_IDS ]]; then  # this option is missing in the command
+    # if [[ -n $device_ids ]]; then  # this option is missing in the command
     #     IFS=$'\n,'
-    #     for device_id in ${PARAM_DEVICE_IDS}; do
+    #     for device_id in ${device_ids}; do
     #         args+=(--device-id "${device_id}")
     #     done
     #     unset IFS
     # fi
 
-    if [[ -n $PARAM_LOCATIONS ]]; then
-        export DATADOG_SYNTHETICS_LOCATIONS="${PARAM_LOCATIONS}"
+    if [[ -n $locations ]]; then
+        export DATADOG_SYNTHETICS_LOCATIONS="${locations}"
     fi
 
-    DATADOG_API_KEY="${PARAM_API_KEY}" \
-    DATADOG_APP_KEY="${PARAM_APP_KEY}" \
-    DATADOG_SUBDOMAIN="${PARAM_SUBDOMAIN}" \
-    DATADOG_SITE="${PARAM_SITE}" \
+    DATADOG_API_KEY="${api_key}" \
+    DATADOG_APP_KEY="${app_key}" \
+    DATADOG_SUBDOMAIN="${subdomain}" \
+    DATADOG_SITE="${site}" \
     DATADOG_SYNTHETICS_CI_TRIGGER_APP="bitrise_step" \
         $DATADOG_CI_COMMAND synthetics run-tests \
         "${args[@]}"

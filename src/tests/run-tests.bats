@@ -9,49 +9,49 @@ setup() {
 DIFF_ARGS="-u --label actual --label expected"
 
 @test 'Use custom parameters' {
-    export PARAM_API_KEY="DD_API_KEY"
-    export PARAM_APP_KEY="DD_APP_KEY"
-    export PARAM_CONFIG_PATH="./some/other/path.json"
-    export PARAM_DEVICE_IDS="device1,device2"
-    export PARAM_FAIL_ON_CRITICAL_ERRORS="1"
-    export PARAM_FAIL_ON_MISSING_TESTS="1"
-    export PARAM_FAIL_ON_TIMEOUT="0"
-    export PARAM_FILES="test1.json"
-    export PARAM_JUNIT_REPORT="reports/TEST-1.xml"
-    export PARAM_LOCATIONS="aws:eu-west-1"
-    export PARAM_MOBILE_APPLICATION_VERSION="1.4.2"
-    export PARAM_MOBILE_APPLICATION_FILE_PATH="example/test.apk"
-    export PARAM_POLLING_TIMEOUT="123"
-    export PARAM_PUBLIC_IDS="jak-not-now,jak-one-mor"
-    export PARAM_SITE="datadoghq.eu"
-    export PARAM_SUBDOMAIN="app1"
-    export PARAM_TEST_SEARCH_QUERY="apm"
-    export PARAM_TUNNEL="1"
-    export PARAM_VARIABLES='START_URL=https://example.org,MY_VARIABLE="My title"'
+    export api_key="DD_API_KEY"
+    export app_key="DD_APP_KEY"
+    export config_path="./some/other/path.json"
+    export device_ids="device1,device2"
+    export fail_on_critical_errors="1"
+    export fail_on_missing_tests="1"
+    export fail_on_timeout="0"
+    export files="test1.json"
+    export junit_report="reports/TEST-1.xml"
+    export locations="aws:eu-west-1"
+    export mobile_application_version="1.4.2"
+    export mobile_application_version_file_path="example/test.apk"
+    export polling_timeout="123"
+    export public_ids="jak-not-now,jak-one-mor"
+    export site="datadoghq.eu"
+    export subdomain="app1"
+    export test_search_query="apm"
+    export tunnel="1"
+    export variables='START_URL=https://example.org,MY_VARIABLE="My title"'
     export DATADOG_CI_COMMAND="echo"
 
     diff $DIFF_ARGS <(RunTests) <(echo synthetics run-tests --failOnCriticalErrors --failOnMissingTests --no-failOnTimeout --tunnel --config ./some/other/path.json --files test1.json --jUnitReport reports/TEST-1.xml --pollingTimeout 123 --public-id jak-not-now --public-id jak-one-mor --search apm --variable START_URL=https://example.org --variable MY_VARIABLE=\"My title\" --device-id device1 --device-id device2 --mobile-application-version 1.4.2 --mobile-application-file-path example/test.apk)
 }
 
 @test 'Use default parameters' {
-    export PARAM_API_KEY="DD_API_KEY"
-    export PARAM_APP_KEY="DD_APP_KEY"
-    export PARAM_CONFIG_PATH=""
-    export PARAM_DEVICE_IDS=""
-    export PARAM_FAIL_ON_CRITICAL_ERRORS="0"
-    export PARAM_FAIL_ON_MISSING_TESTS="0"
-    export PARAM_FAIL_ON_TIMEOUT="1"
-    export PARAM_FILES=""
-    export PARAM_JUNIT_REPORT=""
-    export PARAM_LOCATIONS=""
-    export PARAM_MOBILE_APPLICATION_VERSION=""
-    export PARAM_MOBILE_APPLICATION_FILE_PATH=""
-    export PARAM_POLLING_TIMEOUT=""
-    export PARAM_PUBLIC_IDS=""
-    export PARAM_SITE=""
-    export PARAM_SUBDOMAIN=""
-    export PARAM_TEST_SEARCH_QUERY=""
-    export PARAM_TUNNEL="0"
+    export api_key="DD_API_KEY"
+    export app_key="DD_APP_KEY"
+    export config_path=""
+    export device_ids=""
+    export fail_on_critical_errors="0"
+    export fail_on_missing_tests="0"
+    export fail_on_timeout="1"
+    export files=""
+    export junit_report=""
+    export locations=""
+    export mobile_application_version=""
+    export mobile_application_version_file_path=""
+    export polling_timeout=""
+    export public_ids=""
+    export site=""
+    export subdomain=""
+    export test_search_query=""
+    export tunnel="0"
     export DATADOG_CI_COMMAND="echo"
 
     diff $DIFF_ARGS <(RunTests) <(echo synthetics run-tests --failOnTimeout)
@@ -60,15 +60,15 @@ DIFF_ARGS="-u --label actual --label expected"
 @test 'Support spaces and commas in filenames' {
     export DATADOG_CI_COMMAND="echo"
 
-    export PARAM_FILES="ci/file with space.json"
+    export files="ci/file with space.json"
     diff $DIFF_ARGS <(RunTests) <(echo synthetics run-tests --no-failOnTimeout --files "ci/file with space.json")
 
-    export PARAM_FILES="{,!(node_modules)/**/}*.synthetics.json"
+    export files="{,!(node_modules)/**/}*.synthetics.json"
     diff $DIFF_ARGS <(RunTests) <(echo synthetics run-tests --no-failOnTimeout --files "{,!(node_modules)/**/}*.synthetics.json")
 
-    export PARAM_FILES="hello, i'm a file.txt"
+    export files="hello, i'm a file.txt"
     diff $DIFF_ARGS <(RunTests) <(echo synthetics run-tests --no-failOnTimeout --files "hello, i'm a file.txt")
 
-    export PARAM_FILES=$'file 1.json\nfile 2.json'
+    export files=$'file 1.json\nfile 2.json'
     diff $DIFF_ARGS <(RunTests) <(echo synthetics run-tests --no-failOnTimeout --files "file 1.json" --files "file 2.json")
 }
