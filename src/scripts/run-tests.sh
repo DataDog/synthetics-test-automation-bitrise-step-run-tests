@@ -1,6 +1,6 @@
 RunTests() {
-    PARAM_API_KEY=$(eval echo "\$$api_key")
-    PARAM_APP_KEY=$(eval echo "\$$app_key")
+    api_key=$(eval echo "\$$api_key")
+    app_key=$(eval echo "\$$app_key")
 
     if [[ -n "${DD_SITE}" ]]; then
         site=${DD_SITE}
