@@ -67,8 +67,8 @@ RunTests() {
     # if [[ -n $PARAM_MOBILE_APPLICATION_VERSION ]]; then
     #     args+=(--mobileApplicationVersion "${PARAM_MOBILE_APPLICATION_VERSION}")
     # fi
-    if [[ -n $PARAM_MOBILE_APPLICATION_FILE_PATH ]]; then
-        args+=(--mobileApplicationFilePath "${PARAM_MOBILE_APPLICATION_FILE_PATH}")
+    if [[ -n $PARAM_MOBILE_APPLICATION_VERSION_FILE_PATH ]]; then
+        args+=(--mobileApplicationVersionFilePath "${PARAM_MOBILE_APPLICATION_VERSION_FILE_PATH}")
     fi
     # if [[ -n $PARAM_DEVICE_IDS ]]; then  # this option is missing in the command
     #     IFS=$'\n,'
