@@ -1,3 +1,5 @@
+echo "HELLO"
+
 RunTests() {
     api_key=$(eval echo "\$$api_key")
     app_key=$(eval echo "\$$app_key")
@@ -93,6 +95,6 @@ RunTests() {
 
 # Will not run if sourced for bats-core tests.
 # View src/tests for more information.
-if [ $BITRISE_TEST_ENV != true ]; then
+if [[ $BITRISE_TEST_ENV != true ]]; then
     RunTests
 fi
