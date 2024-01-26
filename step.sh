@@ -3,6 +3,8 @@ set -ex
 
 echo "This is the value specified for the input 'example_step_input': ${example_step_input}"
 
+echo "Who let the dogs out?"
+
 #
 # --- Export Environment Variables for other Steps:
 # You can export Environment Variables for other Steps with
