@@ -1,4 +1,4 @@
-echo "HELLO"
+echo "HELLO Can you hear me?"
 
 RunTests() {
     api_key=$(eval echo "\$$api_key")
