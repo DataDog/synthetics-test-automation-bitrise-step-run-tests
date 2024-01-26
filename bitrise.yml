@@ -54,10 +54,12 @@ workflows:
             ls ../.. -la
             ls ../../.. -la
             ls ../../../tmp -la
+            echo "bin"
             ls ../../../bin -la
+            ls ../../../bin/src -la
+            ls ../../../bin/tmp -la
             ls ../../../bitrise -la
             ls ../../../dev -la
-            cat ../../../entrypoint.sh
             ls ../../../etc -la
             ls ../../../.. -la
 
