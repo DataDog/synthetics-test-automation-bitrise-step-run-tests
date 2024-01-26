@@ -38,8 +38,8 @@ workflows:
             echo "Hello"
             pwd
             ls -lha
-            ls -lha /.bitrise-config
-    - path::/.bitrise-config:
+            ls -lha ..
+    - path::./:
         title: Step Test
         description: |-
           The example input has a default value,
