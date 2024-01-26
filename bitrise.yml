@@ -36,7 +36,9 @@ workflows:
         - content: |
             #!/bin/bash
             echo "Hello"
-            ls -la
+            pwd
+            ls -lha
+            ls -lha ..
     - path::./:
         title: Step Test
         description: |-
