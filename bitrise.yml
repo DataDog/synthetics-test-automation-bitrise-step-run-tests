@@ -13,6 +13,8 @@ app:
 
 workflows:
   test:
+    before_run:
+      - audit-this-step
     steps:
     # - script:
     #     inputs:
