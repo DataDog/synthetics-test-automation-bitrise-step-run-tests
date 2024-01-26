@@ -13,9 +13,9 @@ summary: |
   placeholder summary
 description: |
   placeholder description
-website: https://github.com/teodor2312/Datadog/bitrise-step-datadog-mobile-app-run-tests
-source_code_url: https://github.com/teodor2312/Datadog/bitrise-step-datadog-mobile-app-run-tests
-support_url: https://github.com/teodor2312/Datadog/bitrise-step-datadog-mobile-app-run-tests/issues
+website: https://github.com/DataDog/synthetics-test-automation-bitrise-step-run-tests.git
+source_code_url: https://github.com/DataDog/synthetics-test-automation-bitrise-step-run-tests.git
+support_url: https://github.com/DataDog/synthetics-test-automation-bitrise-step-run-tests.git/issues
 
 # If this step should be available only for certain project types
 # just uncomment this `project_type_tags` section and include all the
