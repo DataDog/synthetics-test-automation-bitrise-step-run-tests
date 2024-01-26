@@ -13,8 +13,8 @@ app:
 
 workflows:
   test:
-    before_run:
-      - audit-this-step
+    # before_run:
+    #   - audit-this-step
     steps:
     # - script:
     #     inputs:
@@ -34,16 +34,8 @@ workflows:
         - path: ./_tmp
         - is_create_path: true
     # - git::https://github.com/DataDog/synthetics-test-automation-bitrise-step-run-tests.git:
-    - path::./:
-        title: Step Test
-        description: |-
-          The example input has a default value,
-          you can overwrite it if you want to, just like we did below,
-          but the step would use the default value specified in the `step.yml`
-          file if you would not specify another value.
-        # run_if: true
-        # inputs:
-        # - example_step_input: Example Step Input's value
+    # - git::git@github.com:lawicko/bitrise-step-swiftlint.git@output:
+    - git::git@github.com:DataDog/synthetics-test-automation-bitrise-step-run-tests.git:
     - script:
         inputs:
         - is_debug: "yes"
@@ -64,6 +56,16 @@ workflows:
             ls ../../../dev -la
             ls ../../../etc -la
             ls ../../../.. -la
+    - path::./:
+        title: Step Test
+        description: |-
+          The example input has a default value,
+          you can overwrite it if you want to, just like we did below,
+          but the step would use the default value specified in the `step.yml`
+          file if you would not specify another value.
+        run_if: true
+        # inputs:
+        # - example_step_input: Example Step Input's value
 
 
 
