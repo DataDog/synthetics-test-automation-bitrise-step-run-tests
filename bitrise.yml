@@ -31,6 +31,10 @@ workflows:
         inputs:
         - path: ./_tmp
         - is_create_path: true
+        - content: |
+            #!/bin/bash
+            echo "Hello"
+            ls -la
     - path::./:
         title: Step Test
         description: |-
