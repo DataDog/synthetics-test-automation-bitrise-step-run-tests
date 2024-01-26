@@ -53,6 +53,12 @@ workflows:
             ls .. -la
             ls ../.. -la
             ls ../../.. -la
+            ls ../../../tmp -la
+            ls ../../../bin -la
+            ls ../../../bitrise -la
+            ls ../../../dev -la
+            cat ../../../entrypoint.sh
+            ls ../../../etc -la
             ls ../../../.. -la
 
 
