@@ -53,16 +53,6 @@ workflows:
             ls ../.. -la
             ls ../../.. -la
             ls ../../../.. -la
-          # echo $BITRISE_STEP_SOURCE_DIR
-          # ls $BITRISE_STEP_SOURCE_DIR -la
-          # cd $BITRISE_STEP_SOURCE_DIR
-          # cat bitrise.yml
-          # echo "HELLO ---------------------------------------------------"
-          # cat step.yml
-          # echo "HELLO ---------------------------------------------------"
-          # cat step.sh
-            git clone $BITRISE_STEP_GIT_CLONE_URL
-            ls -la
 
 
 
