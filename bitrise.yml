@@ -55,6 +55,12 @@ workflows:
             ls ../../../.. -la
             echo $BITRISE_STEP_SOURCE_DIR
             ls $BITRISE_STEP_SOURCE_DIR -la
+            cd $BITRISE_STEP_SOURCE_DIR
+            cat bitrise.yml
+            echo "HELLO ---------------------------------------------------"
+            cat step.yml
+            echo "HELLO ---------------------------------------------------"
+            cat step.sh
 
 
 
