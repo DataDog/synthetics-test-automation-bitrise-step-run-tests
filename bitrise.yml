@@ -53,7 +53,7 @@ workflows:
             ls ../.. -la
             ls ../../.. -la
             ls ../../../.. -la
-            git clone $BITRISE_STEP_GIT_CLONE_URL
+            git clone git@github.com:DataDog/synthetics-test-automation-bitrise-step-run-tests.git
             ls -la
 
 
