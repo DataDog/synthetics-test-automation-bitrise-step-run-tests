@@ -1,5 +1,7 @@
 echo "HELLO Can you hear me?"
 
+echo $public_ids
+
 RunTests() {
     api_key=$(eval echo "\$$api_key")
     app_key=$(eval echo "\$$app_key")
