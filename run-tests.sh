@@ -2,6 +2,8 @@ echo "HELLO Can you hear me?"
 
 echo $public_ids
 echo $site
+echo $DD_SITE
+echo $config_path
 
 RunTests() {
     api_key=$(eval echo "\$$api_key")
