@@ -90,7 +90,7 @@ RunTests() {
         export DATADOG_SYNTHETICS_LOCATIONS="${locations}"
     fi
 
-    echo $args
+    echo "args:${args[@]}"
 
     DATADOG_API_KEY="${api_key}" \
     DATADOG_APP_KEY="${app_key}" \
