@@ -4,6 +4,7 @@ echo $public_ids
 echo $site
 echo $DD_SITE
 echo $config_path
+echo $fail_on_critical_errors
 
 RunTests() {
     api_key=$(eval echo "\$$api_key")
@@ -88,6 +89,8 @@ RunTests() {
     if [[ -n $locations ]]; then
         export DATADOG_SYNTHETICS_LOCATIONS="${locations}"
     fi
+
+    echo $args
 
     DATADOG_API_KEY="${api_key}" \
     DATADOG_APP_KEY="${app_key}" \
