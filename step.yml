@@ -134,9 +134,9 @@ inputs:
     opts:
       title: "Datadog Site"
       description: The Datadog site to send data to. If the `DD_SITE` environment variable is set, it takes preference.
-      is_expand: true
-      is_required: true
-      is_sensitive: true
+      # is_expand: true
+      # is_required: true
+      # is_sensitive: true
   - subdomain: 'app'
     opts:
       title: "Custom subdomain"

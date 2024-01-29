@@ -91,6 +91,7 @@ RunTests() {
     fi
 
     echo "args:${args[@]}"
+    echo "DATADOG_SITE=${site}"
 
     DATADOG_API_KEY="${api_key}" \
     DATADOG_APP_KEY="${app_key}" \
