@@ -5,6 +5,7 @@ app:
   envs:
   # An example secret param, define it (A_SECRET_PARAM) in .bitrise.secrets.yml
   - A_SECRET_PARAM: $A_SECRET_PARAM
+  - site: $site
   # If you want to share this step into a StepLib
   - BITRISE_STEP_ID: datadog-mobile-app-run-tests
   - BITRISE_STEP_VERSION: "0.0.1"
@@ -55,6 +56,7 @@ workflows:
             ls -lha
             cd datadog-ci
             ls -lha
+            echo $site
     # - path::./:
     #     title: Step Test
     #     description: |-
