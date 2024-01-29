@@ -1,6 +1,7 @@
 echo "HELLO Can you hear me?"
 
 echo $public_ids
+echo $site
 
 RunTests() {
     api_key=$(eval echo "\$$api_key")
