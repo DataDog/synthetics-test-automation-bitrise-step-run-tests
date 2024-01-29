@@ -134,13 +134,13 @@ inputs:
     opts:
       title: "Datadog Site"
       description: The Datadog site to send data to. If the `DD_SITE` environment variable is set, it takes preference.
+      is_expand: true
+      is_required: true
+      is_sensitive: true
   - subdomain: 'app'
     opts:
       title: "Custom subdomain"
       description: The name of the custom subdomain set to access your Datadog application. If the URL used to access Datadog is `myorg.datadoghq.com`, the `subdomain` value needs to be set to `myorg`.
-      is_expand: true
-      is_required: true
-      is_sensitive: true
   - test_search_query: ''
     opts:
       title: "Test Search Query"
