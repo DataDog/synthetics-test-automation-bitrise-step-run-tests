@@ -5,7 +5,7 @@ app:
   envs:
   # An example secret param, define it (A_SECRET_PARAM) in .bitrise.secrets.yml
   - A_SECRET_PARAM: $A_SECRET_PARAM
-  - site: $site
+  # - site: $site
   - api_key: $api_key
   - app_key: $app_key
   # If you want to share this step into a StepLib
@@ -40,7 +40,7 @@ workflows:
         inputs:
         - api_key: $api_key
         - app_key: $app_key
-        - site: $site
+        - site: datadoghq.eu
         # - config_path: './global.config.json'
         - fail_on_critical_errors: true
         - fail_on_missing_tests: false
