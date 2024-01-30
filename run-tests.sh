@@ -1,10 +1,14 @@
 echo "HELLO Can you hear me?"
 
 echo $public_ids
-echo $site
 echo $DD_SITE
 echo $config_path
 echo $fail_on_critical_errors
+
+echo "site: '$site'"
+
+escaped_site=$(eval echo "\$$site")
+echo "escaped_site: '$escaped_site'"
 
 RunTests() {
     api_key=$(eval echo "\$$api_key")
