@@ -4,7 +4,7 @@ default_step_lib_source: https://github.com/bitrise-io/bitrise-steplib.git
 app:
   envs:
   # An example secret param, define it (A_SECRET_PARAM) in .bitrise.secrets.yml
-  - A_SECRET_PARAM: $A_SECRET_PARAM
+  # - A_SECRET_PARAM: $A_SECRET_PARAM
   - site_env: ap1.datadoghq.com
   # - api_key: $api_key
   # - app_key: $app_key
@@ -38,9 +38,9 @@ workflows:
         - is_create_path: true
     - git::https://github.com/DataDog/synthetics-test-automation-bitrise-step-run-tests.git:
         inputs:
-        - api_key: $api_key
-        - app_key: $app_key
-        - site: $site
+        - api_key: $DATADOG_API_KEY
+        - app_key: $DATADOG_APP_KEY
+        # - site: $site
         # - config_path: './global.config.json'
         - fail_on_critical_errors: true
         - fail_on_missing_tests: false
