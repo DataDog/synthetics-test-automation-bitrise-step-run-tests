@@ -7,6 +7,8 @@ echo $fail_on_critical_errors
 
 echo "site: '$site'"
 echo "config_path: '$config_path'"
+pwd
+ls -lha
 
 escaped_site=$(eval echo "$site")
 echo "escaped_site: '$escaped_site'"
