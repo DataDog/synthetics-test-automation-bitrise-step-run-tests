@@ -25,18 +25,18 @@ RunTests() {
     fi
 
     args=()
-    if [[ $fail_on_critical_errors == "1" ]]; then
+    if [[ $fail_on_critical_errors == "true" ]]; then
         args+=(--failOnCriticalErrors)
     fi
-    if [[ $fail_on_missing_tests == "1" ]]; then
+    if [[ $fail_on_missing_tests == "true" ]]; then
         args+=(--failOnMissingTests)
     fi
-    if [[ $fail_on_timeout == "1" ]]; then
+    if [[ $fail_on_timeout == "true" ]]; then
         args+=(--failOnTimeout)
     else
         args+=(--no-failOnTimeout)
     fi
-    if [[ $tunnel == "1" ]]; then
+    if [[ $tunnel == "true" ]]; then
         args+=(--tunnel)
     fi
     if [[ -n $config_path ]]; then
