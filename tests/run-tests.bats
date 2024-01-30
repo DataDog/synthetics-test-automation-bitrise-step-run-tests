@@ -2,7 +2,7 @@
 setup() {
     # Load our script file.
     export BITRISE_TEST_ENV=true
-    source ./src/scripts/run-tests.sh 
+    source ./run-tests.sh
     unset BITRISE_TEST_ENV
 }
 
