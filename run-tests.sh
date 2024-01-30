@@ -7,14 +7,12 @@ echo $fail_on_critical_errors
 
 echo "site: '$site'"
 
-escaped_site=$(eval echo "\$$site")
+escaped_site=$(eval echo "$site")
 echo "escaped_site: '$escaped_site'"
 
 RunTests() {
-    api_key=$(eval echo "$api_key")
-    # app_key=$(eval echo "\$$app_key")
-
-    echo "api_key: '$api_key'"
+    # api_key=$(eval echo "$api_key")
+    # app_key=$(eval echo "$app_key")
 
     if [[ -n "${DD_SITE}" ]]; then
         site=${DD_SITE}
@@ -23,14 +21,12 @@ RunTests() {
     DATADOG_CI_VERSION="2.25.0"
 
     # Not run when running unit tests.
-    # if [[ -z "${DATADOG_CI_COMMAND}" ]]; then
-    #     curl -L --fail "https://github.com/DataDog/datadog-ci/releases/download/v${DATADOG_CI_VERSION}/datadog-ci_linux-x64" --output "./datadog-ci"
-    #     chmod +x ./datadog-ci
+    if [[ -z "${DATADOG_CI_COMMAND}" ]]; then
+        curl -L --fail "https://github.com/DataDog/datadog-ci/releases/download/v${DATADOG_CI_VERSION}/datadog-ci_linux-x64" --output "./datadog-ci"
+        chmod +x ./datadog-ci
 
-    #     DATADOG_CI_COMMAND="./datadog-ci"
-    # fi
-
-    DATADOG_CI_COMMAND="echo"
+        DATADOG_CI_COMMAND="./datadog-ci"
+    fi
 
     args=()
     if [[ $fail_on_critical_errors == "true" ]]; then
@@ -102,7 +98,7 @@ RunTests() {
     echo "DATADOG_SITE=${site}"
 
     DATADOG_API_KEY="${api_key}" \
-    # DATADOG_APP_KEY="${app_key}" \
+    DATADOG_APP_KEY="${app_key}" \
     DATADOG_SUBDOMAIN="${subdomain}" \
     DATADOG_SITE="${site}" \
     DATADOG_SYNTHETICS_CI_TRIGGER_APP="bitrise_step" \
