@@ -1,24 +1,4 @@
-echo "HELLO Can you hear me?"
-
-echo $public_ids
-echo $DD_SITE
-echo $config_path
-echo $fail_on_critical_errors
-
-echo "site: '$site'"
-echo "config_path: '$config_path'"
-pwd
-ls -lha
-ls .. -lha
-ls ../.. -lha
-
-escaped_site=$(eval echo "$site")
-echo "escaped_site: '$escaped_site'"
-
 RunTests() {
-    # api_key=$(eval echo "$api_key")
-    # app_key=$(eval echo "$app_key")
-
     if [[ -n "${DD_SITE}" ]]; then
         site=${DD_SITE}
     fi
@@ -100,7 +80,6 @@ RunTests() {
     fi
 
     echo "args:${args[@]}"
-    echo "DATADOG_SITE=${site}"
 
     DATADOG_API_KEY="${api_key}" \
     DATADOG_APP_KEY="${app_key}" \
