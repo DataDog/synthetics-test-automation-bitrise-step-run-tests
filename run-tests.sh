@@ -11,7 +11,7 @@ escaped_site=$(eval echo "\$$site")
 echo "escaped_site: '$escaped_site'"
 
 RunTests() {
-    api_key=$(eval echo "\$$DATADOG_API_KEY")
+    api_key=$(eval echo "$api_key")
     # app_key=$(eval echo "\$$app_key")
 
     echo "api_key: '$api_key'"
