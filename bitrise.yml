@@ -41,10 +41,8 @@ workflows:
         - fail_on_critical_errors: true
         - fail_on_missing_tests: false
         - fail_on_timeout: true
-        # - files: ''
-        # - junit_report: ''
-        # - locations: ''
-        - public_ids: "7ha-yp6-rr8"
+        - public_ids: "7uk-gte-ywv"
+        # - public_ids: "2r9-q7u-4nn,pwd-mwg-3p5"
     - script:
         inputs:
         - is_debug: "yes"
