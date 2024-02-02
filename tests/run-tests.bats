@@ -1,9 +1,9 @@
 # Runs prior to every test
 setup() {
     # Load our script file.
-    export BITRISE_TEST_ENV=true
+    export IS_TEST_ENV=true
     source ./run-tests.sh
-    unset BITRISE_TEST_ENV
+    unset IS_TEST_ENV
 }
 
 DIFF_ARGS="-u --label actual --label expected"

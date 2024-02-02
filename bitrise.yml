@@ -23,7 +23,8 @@ workflows:
         inputs:
         - path: ./_tmp
         - is_create_path: true
-    - git::https://github.com/DataDog/synthetics-test-automation-bitrise-step-run-tests.git: # TODO: go back to using `path::./`
+    - git::https://github.com/DataDog/synthetics-test-automation-bitrise-step-run-tests.git:teodor.todorov/SYNTH-11935/add-e2e-and-unit-tests-in-ci:
+    # TODO: go back to using `path::./`
         inputs:
         - api_key: $DATADOG_API_KEY
         - app_key: $DATADOG_APP_KEY
