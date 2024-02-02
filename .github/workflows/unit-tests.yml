@@ -1,5 +1,5 @@
-name: "Run unit tests"
-on: [push]
+name: Run unit tests
+on: push
 jobs:
   build:
     name: build
