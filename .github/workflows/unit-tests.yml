@@ -1,5 +1,5 @@
-name: "CI"
-on: [push, pull_request]
+name: "Run unit tests"
+on: [push]
 jobs:
   build:
     name: build
