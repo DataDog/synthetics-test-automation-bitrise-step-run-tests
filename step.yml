@@ -63,7 +63,7 @@ type_tags:
 
 toolkit:
   bash:
-    entry_file: ./src/scripts/run-test.sh
+    entry_file: run-tests.sh
 
 
 inputs:

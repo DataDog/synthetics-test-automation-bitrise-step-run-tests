@@ -1,7 +1,4 @@
 RunTests() {
-    api_key=$(eval echo "\$$api_key")
-    app_key=$(eval echo "\$$app_key")
-
     if [[ -n "${DD_SITE}" ]]; then
         site=${DD_SITE}
     fi
@@ -17,18 +14,18 @@ RunTests() {
     fi
 
     args=()
-    if [[ $fail_on_critical_errors == "1" ]]; then
+    if [[ $fail_on_critical_errors == "true" ]]; then
         args+=(--failOnCriticalErrors)
     fi
-    if [[ $fail_on_missing_tests == "1" ]]; then
+    if [[ $fail_on_missing_tests == "true" ]]; then
         args+=(--failOnMissingTests)
     fi
-    if [[ $fail_on_timeout == "1" ]]; then
+    if [[ $fail_on_timeout == "true" ]]; then
         args+=(--failOnTimeout)
     else
         args+=(--no-failOnTimeout)
     fi
-    if [[ $tunnel == "1" ]]; then
+    if [[ $tunnel == "true" ]]; then
         args+=(--tunnel)
     fi
     if [[ -n $config_path ]]; then
@@ -93,6 +90,6 @@ RunTests() {
 
 # Will not run if sourced for bats-core tests.
 # View src/tests for more information.
-if [ $BITRISE_TEST_ENV != true ]; then
+if [ "$IS_TEST_ENV" != "true" ]; then
     RunTests
 fi
