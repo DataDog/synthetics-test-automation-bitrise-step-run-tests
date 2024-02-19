@@ -116,7 +116,7 @@ inputs:
   - mobile_application_version: ''
     opts:
       title: "Mobile Application Version"
-      description: Override the default mobile application version to test a new version within Datadog. The version must be uploaded and available within Datadog.
+      description: Override the default mobile application version to test a different version within Datadog.
   - mobile_application_version_file_path: ''
     opts:
       title: "Mobile Application Version File Path"
