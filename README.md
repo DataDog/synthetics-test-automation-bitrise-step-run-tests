@@ -86,7 +86,7 @@ For an example test file, see this [`test.synthetics.json` file][C-2].
    - test_search_query: 'tag:e2e-tests'
    - variables: |
       START_URL=https://staging.website.com
-      PASSWORD=$(StagingPassword)
+      PASSWORD=$STAGING_PASSWORD
 ```
 
 ### Example task using a global configuration override with `configPath`
@@ -105,7 +105,7 @@ For an example configuration file, see this [`global.config.json` file][B-1].
 
 ### Example including all possible configurations
 
-There shouldn't be any cases where you would need to use all of the configurations at the same time as for example `public_ids` and `test_search_query` are mutually exclusive. However having an example for the value of each is useful.
+For reference here's how a full configuration could look like:
 
 ```yml
 - git::https://github.com/DataDog/synthetics-test-automation-bitrise-step-run-tests.git:
@@ -130,7 +130,7 @@ There shouldn't be any cases where you would need to use all of the configuratio
    - tunnel: true
    - variables: |
       START_URL=https://staging.website.com
-      PASSWORD=$(StagingPassword)
+      PASSWORD=$STAGING_PASSWORD
 ```
 
 
