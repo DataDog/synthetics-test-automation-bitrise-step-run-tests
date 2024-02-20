@@ -13,17 +13,15 @@ With the `synthetics-test-automation-bitrise-step-run-tests` step you can run Sy
 
 To get started:
 
-1. Add this step to your workflow. You can see Bitrise's documentation on how to do that [here][D-1]. You can also configure it locally by referencing this step in your `bitrise.yml`
-2. Add you API and App Keys to your secrets in Bitrise. Documentation on how to do that can be found [here][D-2]
+1. Add this step to your workflow. You can see Bitrise's documentation on how to do that [here][D-1]. You can also configure it locally by referencing this step in your `bitrise.yml`.
+2. Add you API and App Keys to your secrets in Bitrise. Documentation on how to do that can be found [here][D-2].
 3. Configure your step inputs ([docs][D-3]). You can also configure them in your `bitrise.yml`. The only required inputs are the 2 secrets you configured earlier. The rest of the possible inputs will be described later on.
 
 ## How to use this Step locally
 
-Can be run directly with the [bitrise CLI][B-3], just `git clone` this repository, `cd` into it's folder in your Terminal/Command Line and call `bitrise run test`.
+This Step can be run directly with the [bitrise CLI][B-3].
 
-*Check the `bitrise.yml` file for required inputs which have to be added to your `.bitrise.secrets.yml` file!*
-
-Step by step:
+To get sterted:
 
 1. Open up your Terminal / Command Line
 2. `git clone` the repository
@@ -31,7 +29,6 @@ Step by step:
 5. Create a `.bitrise.secrets.yml` file in the same directory of `bitrise.yml`
    (the `.bitrise.secrets.yml` is a git ignored file, you can store your secrets in it)
 6. Check the `bitrise.yml` file for any secret you should set in `.bitrise.secrets.yml`
-  * Best practice is to mark these options with something like `# define these in your .bitrise.secrets.yml`, in the `app:envs` section.
 7. Once you have all the required secret parameters in your `.bitrise.secrets.yml` you can just run this step with the [bitrise CLI][B-3]: `bitrise run test`
 
 An example `.bitrise.secrets.yml` file:
