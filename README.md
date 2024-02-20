@@ -49,7 +49,7 @@ envs:
    inputs:
    - api_key: $DATADOG_API_KEY
    - app_key: $DATADOG_APP_KEY
-   - public_ids: '012-345-678, 9ab-cde-fff'
+   - public_ids: 'abc-d3f-ghi, jkl-mn0-pqr'
 ```
 
 ### Example task using existing `synthetics.json` files
@@ -123,7 +123,7 @@ There shouldn't be any cases where you would need to use all of the configuratio
    - mobile_application_version: '01234567-8888-9999-abcd-efffffffffff'
    - mobile_application_version_file_path: 'path/to/application.apk'
    - polling_timeout: 4200000
-   - public_ids: '012-345-678, 9ab-cde-fff'
+   - public_ids: 'abc-d3f-ghi, jkl-mn0-pqr'
    - site: 'datadoghq.com'
    - subdomain: 'myorg'
    - test_search_query: 'tag:e2e-tests'
