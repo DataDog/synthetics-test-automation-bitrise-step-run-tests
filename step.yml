@@ -1,12 +1,12 @@
 title: |-
   datadog-mobile-app-run-tests
 summary: |
-  placeholder summary
+  Step to run Datadog Synthetics tests on your CI
 description: |
-  placeholder description
-website: https://github.com/placeholder-github-username/bitrise-step-datadog-mobile-app-run-tests
-source_code_url: https://github.com/placeholder-github-username/bitrise-step-datadog-mobile-app-run-tests
-support_url: https://github.com/placeholder-github-username/bitrise-step-datadog-mobile-app-run-tests/issues
+  With the `synthetics-test-automation-bitrise-step-run-tests` step you can run Synthetics tests during your Bitrise CI and ensure all your teams using Bitrise can benefit from Synthetic tests at every stage of the software lifecycle.
+website: https://github.com/DataDog/synthetics-test-automation-bitrise-step-run-tests
+source_code_url: https://github.com/DataDog/synthetics-test-automation-bitrise-step-run-tests
+support_url: https://github.com/DataDog/synthetics-test-automation-bitrise-step-run-tests/issues
 
 type_tags:
   - test
