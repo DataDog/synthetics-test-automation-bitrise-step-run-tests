@@ -61,19 +61,19 @@ RunTests() {
         done
         unset IFS
     fi
-    # if [[ -n $mobile_application_version ]]; then
-    #     args+=(--mobileApplicationVersion "${mobile_application_version}")
-    # fi
+    if [[ -n $mobile_application_version ]]; then
+        args+=(--mobileApplicationVersion "${mobile_application_version}")
+    fi
     if [[ -n $mobile_application_version_file_path ]]; then
         args+=(--mobileApplicationVersionFilePath "${mobile_application_version_file_path}")
     fi
-    # if [[ -n $device_ids ]]; then  # this option is missing in the command
-    #     IFS=$'\n,'
-    #     for device_id in ${device_ids}; do
-    #         args+=(--device-id "${device_id}")
-    #     done
-    #     unset IFS
-    # fi
+    if [[ -n $device_ids ]]; then
+        IFS=$'\n,'
+        for device_id in ${device_ids}; do
+            args+=(--device-id "${device_id}")
+        done
+        unset IFS
+    fi
 
     if [[ -n $locations ]]; then
         export DATADOG_SYNTHETICS_LOCATIONS="${locations}"
