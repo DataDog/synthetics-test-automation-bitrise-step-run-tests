@@ -7,15 +7,15 @@
 
 # Overview
 
-With the `synthetics-test-automation-bitrise-step-run-tests` step you can run Synthetics tests during your Bitrise CI and ensure all your teams using Bitrise can benefit from Synthetic tests at every stage of the software lifecycle. This step uses the [Datadog CI Synthetics command][2002].
+With the `synthetics-test-automation-bitrise-step-run-tests` step, you can run Synthetics tests during your Bitrise CI and ensure all your teams using Bitrise can benefit from Synthetic tests at every stage of the software lifecycle. This step uses the [Datadog CI Synthetics command][2002].
 
 ## Setup
 
 To get started:
 
 1. Add this step to your workflow. You can see [Bitrise's documentation][4001] on how to do that. You can also configure it locally by referencing this step in your `bitrise.yml`.
-2. Add your API and App Keys to your secrets in Bitrise. Documentation on how to do that can be found here - [Setting a Secret][4002].
-3. Configure your step inputs ([Step Inputs][4003]). You can also configure them in your `bitrise.yml`. The only required inputs are the 2 secrets you configured earlier. The rest of the possible inputs are described in a later section.
+2. Add your API and App keys to your secrets in Bitrise. Documentation on how to do that can be found here: [Setting a Secret][4002].
+3. Configure your step inputs (see the [Step Inputs documentation][4003]). You can also configure them in your `bitrise.yml`. The only required inputs are the two secrets you configured earlier. The rest of the possible inputs are described in a later section.
 
 ## How to use this Step locally
 
@@ -105,7 +105,7 @@ For an example configuration file, see the [`global.config.json` file][2001].
 
 ### Example including all possible configurations
 
-For reference here's how a full configuration could look like:
+For reference here's how a full configuration could look:
 
 ```yml
 - git::https://github.com/DataDog/synthetics-test-automation-bitrise-step-run-tests.git:
