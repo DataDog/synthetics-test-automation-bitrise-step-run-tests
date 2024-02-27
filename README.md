@@ -2,7 +2,7 @@
 
 <!-- TODO add link to marketplace after we publish the step -->
 <!-- [![Visual Studio Marketplace Version]()][1001]  -->
-[![Build Status](https://app.bitrise.io/app/7846c17b-8a13004fc7-aced-5f3b0b2ec6c4/status.svg?token=480MdFpG78E6kZASg5w1dw&branch=main)](https://app.bitrise.io/app/7846c17b-8a13004fc7-aced-5f3b0b2ec6c4)
+[![Build Status](https://app.bitrise.io/app/7846c17b-8a1c-4fc7-aced-5f3b0b2ec6c4/status.svg?token=480MdFpG78E6kZASg5w1dw&branch=main)](https://app.bitrise.io/app/7846c17b-8a1c-4fc7-aced-5f3b0b2ec6c4)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 # Overview
