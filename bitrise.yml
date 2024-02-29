@@ -3,9 +3,8 @@ default_step_lib_source: https://github.com/bitrise-io/bitrise-steplib.git
 
 app:
   envs:
-  # If you want to share this step into a StepLib
   - BITRISE_STEP_ID: datadog-mobile-app-run-tests
-  - BITRISE_STEP_VERSION: "0.0.1"
+  - BITRISE_STEP_VERSION: "1.0.0"
   - BITRISE_STEP_GIT_CLONE_URL: https://github.com/DataDog/synthetics-test-automation-bitrise-step-run-tests.git
   - MY_STEPLIB_REPO_FORK_GIT_URL: $MY_STEPLIB_REPO_FORK_GIT_URL
 
@@ -32,12 +31,7 @@ workflows:
         inputs:
         - api_key: $DATADOG_API_KEY
         - app_key: $DATADOG_APP_KEY
-        # - config_path: './global.config.json'
-        - fail_on_critical_errors: true
-        - fail_on_missing_tests: false
-        - fail_on_timeout: true
         - public_ids: "7uk-gte-ywv"
-        # - public_ids: "2r9-q7u-4nn,pwd-mwg-3p5"
     - script:
         inputs:
         - is_debug: "yes"
@@ -59,7 +53,6 @@ workflows:
 
   share-this-step:
     envs:
-      # if you want to share this step into a StepLib
       - MY_STEPLIB_REPO_FORK_GIT_URL: $MY_STEPLIB_REPO_FORK_GIT_URL
       - BITRISE_STEP_ID: $BITRISE_STEP_ID
       - BITRISE_STEP_VERSION: $BITRISE_STEP_VERSION

@@ -12,14 +12,14 @@ DIFF_ARGS="-u --label actual --label expected"
     export api_key="DD_API_KEY"
     export app_key="DD_APP_KEY"
     export config_path="./some/other/path.json"
-    # export device_ids="device1,device2"
+    export device_ids="device1,device2"
     export fail_on_critical_errors=true
     export fail_on_missing_tests=true
     export fail_on_timeout=false
     export files="test1.json"
     export junit_report="reports/TEST-1.xml"
     export locations="aws:eu-west-1"
-    # export mobile_application_version="1.4.2"
+    export mobile_application_version="1.4.2"
     export mobile_application_version_file_path="example/test.apk"
     export polling_timeout="123"
     export public_ids="jak-not-now,jak-one-mor"
@@ -30,8 +30,7 @@ DIFF_ARGS="-u --label actual --label expected"
     export variables='START_URL=https://example.org,MY_VARIABLE="My title"'
     export DATADOG_CI_COMMAND="echo"
 
-    # diff $DIFF_ARGS <(RunTests) <(echo synthetics run-tests --failOnCriticalErrors --failOnMissingTests --no-failOnTimeout --tunnel --config ./some/other/path.json --files test1.json --jUnitReport reports/TEST-1.xml --pollingTimeout 123 --public-id jak-not-now --public-id jak-one-mor --search apm --variable START_URL=https://example.org --variable MY_VARIABLE=\"My title\" --device-id device1 --device-id device2 --mobileApplicationVersion 1.4.2 --mobileApplicationVersionFilePath example/test.apk)
-    diff $DIFF_ARGS <(RunTests) <(echo synthetics run-tests --failOnCriticalErrors --failOnMissingTests --no-failOnTimeout --tunnel --config ./some/other/path.json --files test1.json --jUnitReport reports/TEST-1.xml --pollingTimeout 123 --public-id jak-not-now --public-id jak-one-mor --search apm --variable START_URL=https://example.org --variable MY_VARIABLE=\"My title\" --mobileApplicationVersionFilePath example/test.apk)
+    diff $DIFF_ARGS <(RunTests) <(echo synthetics run-tests --failOnCriticalErrors --failOnMissingTests --no-failOnTimeout --tunnel --config ./some/other/path.json --files test1.json --jUnitReport reports/TEST-1.xml --pollingTimeout 123 --public-id jak-not-now --public-id jak-one-mor --search apm --variable START_URL=https://example.org --variable MY_VARIABLE=\"My title\" --mobileApplicationVersion 1.4.2 --mobileApplicationVersionFilePath example/test.apk --device-id device1 --device-id device2)
 }
 
 @test 'Use default parameters' {
