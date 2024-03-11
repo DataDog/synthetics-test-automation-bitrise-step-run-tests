@@ -99,7 +99,7 @@ inputs:
     opts:
       category: Optional Inputs
       title: "Mobile Application Version File Path"
-      description: Override the mobile application with a local or recently built application. It is possible to use $BITRISE_IPA_PATH or $BITRISE_APK_PATH as inputs for this field.
+      description: Override the mobile application with a local or recently built application. You may use $BITRISE_IPA_PATH or $BITRISE_APK_PATH from your previous build steps.
   - polling_timeout: 1800000
     opts:
       category: Optional Inputs
