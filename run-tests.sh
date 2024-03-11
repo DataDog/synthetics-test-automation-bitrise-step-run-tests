@@ -5,9 +5,15 @@ RunTests() {
 
     DATADOG_CI_VERSION="2.31.0"
 
+    unamestr=$(uname)
+
     # Not run when running unit tests.
     if [[ -z "${DATADOG_CI_COMMAND}" ]]; then
-        curl -L --fail "https://github.com/DataDog/datadog-ci/releases/download/v${DATADOG_CI_VERSION}/datadog-ci_linux-x64" --output "./datadog-ci"
+        if [[ "$unamestr" == 'Darwin' ]]; then
+            curl -L --fail "https://github.com/DataDog/datadog-ci/releases/download/v${DATADOG_CI_VERSION}/datadog-ci_darwin-x64" --output "./datadog-ci"
+        elif [[ "$unamestr" == 'Linux' ]]; then
+            curl -L --fail "https://github.com/DataDog/datadog-ci/releases/download/v${DATADOG_CI_VERSION}/datadog-ci_linux-x64" --output "./datadog-ci"
+        fi
         chmod +x ./datadog-ci
 
         DATADOG_CI_COMMAND="./datadog-ci"
