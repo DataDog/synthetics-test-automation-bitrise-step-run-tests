@@ -40,9 +40,13 @@ jobs:
           echo "which"
           chmod +x /usr/local/bin/bitrise
           echo "line"
-          bitrise share start -c https://github.com/DataDog/bitrise-steplib.git
+          curl -fL https://github.com/bitrise-io/stepman/releases/download/0.16.3/stepman-"$(uname -s)"-"$(uname -m)" > /usr/local/bin/stepman
           echo "is"
+          chmod +x /usr/local/bin/stepman
+          echo "not"
+          bitrise share start -c https://github.com/DataDog/bitrise-steplib.git
+          echo "running"
           bitrise share create --tag $RELEASE_VERSION --git https://github.com/DataDog/synthetics-test-automation-bitrise-step-run-tests.git --stepid datadog-mobile-app-run-tests
-          echo "running the script"
+          echo "correctly"
           echo "PR ready to be created for $RELEASE_VERSION"
         # bitrise share finish
