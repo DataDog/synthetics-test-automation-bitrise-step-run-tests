@@ -7,9 +7,10 @@ env:
   GIT_AUTHOR_NAME: "ci.datadog-ci"
 
 on:
-  release:
-    types:
-      - published
+  - push
+  # release:
+  # types:
+  #   - published
 
 jobs:
   create-release-pr-for-steplb:
