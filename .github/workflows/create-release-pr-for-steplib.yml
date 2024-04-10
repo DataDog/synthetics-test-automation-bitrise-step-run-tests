@@ -1,6 +1,6 @@
 # This workflow automatically creates a release PR for the CI integration.
 
-name: Create Release PR for Steplib
+name: Push new relase version to Steplib Fork
 
 env:
   GIT_AUTHOR_EMAIL: "packages@datadoghq.com"
