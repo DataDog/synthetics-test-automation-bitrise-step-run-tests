@@ -34,7 +34,7 @@ jobs:
       - name: Run script to create PR to bitrise-io/bitrise-steplib
         run: |
           RELEASE_VERSION=${{ github.event.release.tag_name }}
-          RELEASE_VERSION="v$RELEASE_VERSION" # e.g. v1.1.0
+          RELEASE_VERSION="4.2.0"
           echo $RELEASE_VERSION
           curl -fL https://github.com/bitrise-io/bitrise/releases/latest/download/bitrise-$(uname -s)-$(uname -m) > /usr/local/bin/bitrise
           chmod +x /usr/local/bin/bitrise
