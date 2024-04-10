@@ -37,8 +37,12 @@ jobs:
           RELEASE_VERSION="4.2.0"
           echo "version is $RELEASE_VERSION"
           curl -fL https://github.com/bitrise-io/bitrise/releases/latest/download/bitrise-$(uname -s)-$(uname -m) > /usr/local/bin/bitrise
+          echo "which"
           chmod +x /usr/local/bin/bitrise
+          echo "line"
           bitrise share start -c https://github.com/DataDog/bitrise-steplib.git
+          echo "is"
           bitrise share create --tag $RELEASE_VERSION --git https://github.com/DataDog/synthetics-test-automation-bitrise-step-run-tests.git --stepid datadog-mobile-app-run-tests
+          echo "running the script"
           echo "PR ready to be created for $RELEASE_VERSION"
         # bitrise share finish
