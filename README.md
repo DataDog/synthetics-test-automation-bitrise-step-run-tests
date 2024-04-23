@@ -1,9 +1,10 @@
 # Datadog Continuous Testing for Bitrise
 
-<!-- TODO add link to marketplace after we publish the step -->
-<!-- [![Visual Studio Marketplace Version]()][1001]  -->
+![GitHub Release](https://img.shields.io/github/v/release/DataDog/synthetics-test-automation-bitrise-step-run-tests)
 [![Build Status](https://app.bitrise.io/app/7846c17b-8a1c-4fc7-aced-5f3b0b2ec6c4/status.svg?token=480MdFpG78E6kZASg5w1dw&branch=main)](https://app.bitrise.io/app/7846c17b-8a1c-4fc7-aced-5f3b0b2ec6c4)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+
+[Bitrise Marketplace Link][1001]
 
 # Overview
 
@@ -45,7 +46,7 @@ envs:
 
 <!-- TODO: change git urls to step references after we publish it -->
 ```yml
-- git::https://github.com/DataDog/synthetics-test-automation-bitrise-step-run-tests.git:
+- datadog-mobile-app-run-tests@1:
    inputs:
    - api_key: $DATADOG_API_KEY
    - app_key: $DATADOG_APP_KEY
@@ -55,7 +56,7 @@ envs:
 ### Example task using existing `synthetics.json` files
 
 ```yaml
-- git::https://github.com/DataDog/synthetics-test-automation-bitrise-step-run-tests.git:
+- datadog-mobile-app-run-tests@1:
    inputs:
    - api_key: $DATADOG_API_KEY
    - app_key: $DATADOG_APP_KEY
@@ -69,7 +70,7 @@ For an example test file, see this [`test.synthetics.json` file][3002].
 ### Example task using the `testSearchQuery`
 
 ```yml
-- git::https://github.com/DataDog/synthetics-test-automation-bitrise-step-run-tests.git:
+- datadog-mobile-app-run-tests@1:
    inputs:
    - api_key: $DATADOG_API_KEY
    - app_key: $DATADOG_APP_KEY
@@ -79,7 +80,7 @@ For an example test file, see this [`test.synthetics.json` file][3002].
 ### Example task using the `testSearchQuery` and variable overrides
 
 ```yml
-- git::https://github.com/DataDog/synthetics-test-automation-bitrise-step-run-tests.git:
+- datadog-mobile-app-run-tests@1:
    inputs:
    - api_key: $DATADOG_API_KEY
    - app_key: $DATADOG_APP_KEY
@@ -94,7 +95,7 @@ For an example test file, see this [`test.synthetics.json` file][3002].
 This task overrides the path to the global `datadog-ci.config.json` file.
 
 ```yml
-- git::https://github.com/DataDog/synthetics-test-automation-bitrise-step-run-tests.git:
+- datadog-mobile-app-run-tests@1:
    inputs:
    - api_key: $DATADOG_API_KEY
    - app_key: $DATADOG_APP_KEY
@@ -108,7 +109,7 @@ For an example configuration file, see the [`global.config.json` file][2001].
 For reference here's how a full configuration could look:
 
 ```yml
-- git::https://github.com/DataDog/synthetics-test-automation-bitrise-step-run-tests.git:
+- datadog-mobile-app-run-tests@1:
    inputs:
    - api_key: $DATADOG_API_KEY
    - app_key: $DATADOG_APP_KEY
@@ -166,7 +167,7 @@ Additional helpful documentation, links, and articles:
 - [Best practices for continuous testing with Datadog][5001]
 
 <!-- Links to Marketplace -->
-[1001]: https://marketplace.visualstudio.com/items?itemName=Datadog.datadog-ci
+[1001]: https://bitrise.io/integrations/steps/datadog-mobile-app-run-tests
 
 <!-- Github links -->
 [2001]: https://github.com/DataDog/datadog-ci/blob/master/.github/workflows/e2e/global.config.json
