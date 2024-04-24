@@ -24,20 +24,9 @@ stages:
 workflows:
   test-on-Ubuntu-stack:
     steps:
-    - change-workdir:
-        title: Switch working dir to test / _tmp dir
-        description: |-
-          To prevent step testing issues, like referencing relative
-          files with just './some-file' in the step's code, which would
-          work for testing the step from this directory directly
-          but would break if the step is included in another `bitrise.yml`.
-        run_if: true
-        inputs:
-        - path: ./_tmp
-        - is_create_path: true
     - activate-ssh-key@4: {}
     - git-clone@8: {}
-    - path::./_tmp:
+    - path::./:
         inputs:
         - api_key: $DATADOG_API_KEY
         - app_key: $DATADOG_APP_KEY
@@ -45,20 +34,9 @@ workflows:
 
   test-on-Xcode-stack:
     steps:
-    - change-workdir:
-        title: Switch working dir to test / _tmp dir
-        description: |-
-          To prevent step testing issues, like referencing relative
-          files with just './some-file' in the step's code, which would
-          work for testing the step from this directory directly
-          but would break if the step is included in another `bitrise.yml`.
-        run_if: true
-        inputs:
-        - path: ./_tmp
-        - is_create_path: true
     - activate-ssh-key@4: {}
     - git-clone@8: {}
-    - path::./_tmp:
+    - path::./:
         inputs:
         - api_key: $DATADOG_API_KEY
         - app_key: $DATADOG_APP_KEY
