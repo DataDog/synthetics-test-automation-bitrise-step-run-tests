@@ -1,11 +1,12 @@
 # Datadog Continuous Testing for Bitrise
 
-<!-- TODO add link to marketplace after we publish the step -->
-<!-- [![Visual Studio Marketplace Version]()][1001]  -->
+![GitHub Release](https://img.shields.io/github/v/release/DataDog/synthetics-test-automation-bitrise-step-run-tests)
 [![Build Status](https://app.bitrise.io/app/7846c17b-8a1c-4fc7-aced-5f3b0b2ec6c4/status.svg?token=480MdFpG78E6kZASg5w1dw&branch=main)](https://app.bitrise.io/app/7846c17b-8a1c-4fc7-aced-5f3b0b2ec6c4)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
-# Overview
+[Bitrise Marketplace Link][1001]
+
+## Overview
 
 With the `synthetics-test-automation-bitrise-step-run-tests` step, you can run Synthetics tests during your Bitrise CI and ensure all your teams using Bitrise can benefit from Synthetic tests at every stage of the software lifecycle. This step uses the [Datadog CI Synthetics command][2002].
 
@@ -26,14 +27,14 @@ To get started:
 1. Open up your Terminal / Command Line
 2. `git clone` the repository
 3. `cd` into the directory of the step (the one you just `git clone`d)
-5. Create a `.bitrise.secrets.yml` file in the same directory of `bitrise.yml`
+4. Create a `.bitrise.secrets.yml` file in the same directory of `bitrise.yml`
    (the `.bitrise.secrets.yml` is a git ignored file, you can store your secrets in it)
-6. Check the `bitrise.yml` file for any secret you should set in `.bitrise.secrets.yml`
-7. Once you have the required secret parameters in your `.bitrise.secrets.yml`, run this step with the [Bitrise CLI][2003]: `bitrise run test`.
+5. Check the `bitrise.yml` file for any secret you should set in `.bitrise.secrets.yml`
+6. Once you have the required secret parameters in your `.bitrise.secrets.yml`, run this step with the [Bitrise CLI][2003]: `bitrise run test`.
 
 An example `.bitrise.secrets.yml` file:
 
-```
+```yml
 envs:
 - A_SECRET_PARAM_ONE: the value for secret one
 - A_SECRET_PARAM_TWO: the value for secret two
@@ -45,7 +46,7 @@ envs:
 
 <!-- TODO: change git urls to step references after we publish it -->
 ```yml
-- git::https://github.com/DataDog/synthetics-test-automation-bitrise-step-run-tests.git:
+- datadog-mobile-app-run-tests@1:
    inputs:
    - api_key: $DATADOG_API_KEY
    - app_key: $DATADOG_APP_KEY
@@ -55,7 +56,7 @@ envs:
 ### Example task using existing `synthetics.json` files
 
 ```yaml
-- git::https://github.com/DataDog/synthetics-test-automation-bitrise-step-run-tests.git:
+- datadog-mobile-app-run-tests@1:
    inputs:
    - api_key: $DATADOG_API_KEY
    - app_key: $DATADOG_APP_KEY
@@ -69,7 +70,7 @@ For an example test file, see this [`test.synthetics.json` file][3002].
 ### Example task using the `testSearchQuery`
 
 ```yml
-- git::https://github.com/DataDog/synthetics-test-automation-bitrise-step-run-tests.git:
+- datadog-mobile-app-run-tests@1:
    inputs:
    - api_key: $DATADOG_API_KEY
    - app_key: $DATADOG_APP_KEY
@@ -79,7 +80,7 @@ For an example test file, see this [`test.synthetics.json` file][3002].
 ### Example task using the `testSearchQuery` and variable overrides
 
 ```yml
-- git::https://github.com/DataDog/synthetics-test-automation-bitrise-step-run-tests.git:
+- datadog-mobile-app-run-tests@1:
    inputs:
    - api_key: $DATADOG_API_KEY
    - app_key: $DATADOG_APP_KEY
@@ -94,7 +95,7 @@ For an example test file, see this [`test.synthetics.json` file][3002].
 This task overrides the path to the global `datadog-ci.config.json` file.
 
 ```yml
-- git::https://github.com/DataDog/synthetics-test-automation-bitrise-step-run-tests.git:
+- datadog-mobile-app-run-tests@1:
    inputs:
    - api_key: $DATADOG_API_KEY
    - app_key: $DATADOG_APP_KEY
@@ -108,7 +109,7 @@ For an example configuration file, see the [`global.config.json` file][2001].
 For reference here's how a full configuration could look:
 
 ```yml
-- git::https://github.com/DataDog/synthetics-test-automation-bitrise-step-run-tests.git:
+- datadog-mobile-app-run-tests@1:
    inputs:
    - api_key: $DATADOG_API_KEY
    - app_key: $DATADOG_APP_KEY
@@ -133,30 +134,29 @@ For reference here's how a full configuration could look:
       PASSWORD=$STAGING_PASSWORD
 ```
 
-
 ## Inputs
 
-| Name                               | Requirement | Description                                                                                                                                                                                                             |
-| -----------------------------------| :---------: | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `apiKey`                           | _required_  | Your Datadog API key. This key is created by your [Datadog organization][3006] and will be accessed as an environment variable.                                                                                         |
-| `appKey`                           | _required_  | Your Datadog application key. This key is created by your [Datadog organization][3006] and will be accessed as an environment variable.                                                                                 |
-| `configPath`                       | _optional_  | The global JSON configuration is used when launching tests. See the [example configuration][3003] for more details.                                                                                                     |
-| `deviceIds`                        | _optional_  | Override the mobile device(s) to run your mobile test.                                                                                                                                                                  |
-| `failOnCriticalErrors`             | _optional_  | A boolean flag that fails the CI job if no tests were triggered, or results could not be fetched from Datadog. The default is set to `false`.                                                                           |
-| `failOnMissingTests`               | _optional_  | Fail the CI job if at least one specified test with a public ID (using `publicIds` or listed in a [test file][3002]) is missing in a run (for example, if it has been deleted programmatically or on the Datadog site). |
-| `failOnTimeout`                    | _optional_  | A boolean flag that fails the CI job if at least one test exceeds the default test timeout. The default is set to `true`.                                                                                               |
-| `files`                            | _optional_  | Glob patterns to detect Synthetic test [configuration files][2002].                                                                                                                                                     |
-| `jUnitReport`                      | _optional_  | The filename for a JUnit report if you want to generate one.                                                                                                                                                            |
-| `locations`                        | _optional_  | String of locations separated by semicolons to override the locations where your tests run.                                                                                                                             |
-| `mobileApplicationVersion`         | _optional_  | Override the default mobile application version for a Synthetic mobile application test. The version must be uploaded and available within Datadog.                                                                     |
-| `mobileApplicationVersionFilePath` | _optional_  | Override the application version for Synthetic mobile application tests.                                                                                                                                                |
-| `pollingTimeout`                   | _optional_  | The duration (in milliseconds) after which the batch is deemed as failed because of a timeout. The default is 30 minutes.                                                                                               |
-| `publicIds`                        | _optional_  | String of public IDs separated by commas for Synthetic tests you want to trigger.                                                                                                                                       |
-| `site`                             | _optional_  | The Datadog site to send data to. If the `DD_SITE` environment variable is set, it takes precedence.                                                                                                                    |
-| `subdomain`                        | _optional_  | The name of the custom subdomain set to access your Datadog application. If the URL used to access Datadog is `myorg.datadoghq.com`, the `subdomain` value needs to be set to `myorg`.                                  |
-| `testSearchQuery`                  | _optional_  | Trigger tests corresponding to a [search][3005] query. This can be useful if you are tagging your test configurations. See [best practices][3007] for more information on tagging.                                      |
-| `tunnel`                           | _optional_  | Enable [tunnel][3004] to interact with Datadog API.                                                                                                                                                                     |
-| `variables`                        | _optional_  | Key-value pairs for injecting variables into tests. Must be formatted using `KEY=VALUE`.                                                                                                                                |
+| Name                               | Requirement | Description                                                                                                                                                                                                                         |
+| -----------------------------------| :---------: | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `apiKey`                           | _required_  | Your Datadog API key. This key is created by your [Datadog organization][3006] and will be accessed as an environment variable.                                                                                                     |
+| `appKey`                           | _required_  | Your Datadog application key. This key is created by your [Datadog organization][3006] and will be accessed as an environment variable.                                                                                             |
+| `configPath`                       | _optional_  | The global JSON configuration is used when launching tests. See the [example configuration][3003] for more details.                                                                                                                 |
+| `deviceIds`                        | _optional_  | Override the mobile device(s) to run your mobile test.                                                                                                                                                                              |
+| `locations`                        | _optional_  | String of locations separated by semicolons to override the locations where your tests run.                                                                                                                                         |
+| `failOnCriticalErrors`             | _optional_  | A boolean flag that fails the CI job if no tests were triggered, or results could not be fetched from Datadog. The default is set to `false`.                                                                                       |
+| `failOnMissingTests`               | _optional_  | Fail the CI job if at least one specified test with a public ID (using `publicIds` or listed in a [test file][3002]) is missing in a run (for example, if it has been deleted programmatically or on the Datadog site).             |
+| `failOnTimeout`                    | _optional_  | A boolean flag that fails the CI job if at least one test exceeds the default test timeout. The default is set to `true`.                                                                                                           |
+| `files`                            | _optional_  | Glob patterns to detect Synthetic test [configuration files][2002].                                                                                                                                                                 |
+| `jUnitReport`                      | _optional_  | The filename for a JUnit report if you want to generate one.                                                                                                                                                                        |
+| `mobileApplicationVersion`         | _optional_  | Override the default mobile application version for a Synthetic mobile application test. The version must be uploaded and available within Datadog. This version is also outputted by the [`datadog-mobile-app-upload` step][1002]. |
+| `mobileApplicationVersionFilePath` | _optional_  | Override the application version for Synthetic mobile application tests.                                                                                                                                                            |
+| `pollingTimeout`                   | _optional_  | The duration (in milliseconds) after which the batch is deemed as failed because of a timeout. The default is 30 minutes.                                                                                                           |
+| `publicIds`                        | _optional_  | String of public IDs separated by commas for Synthetic tests you want to trigger.                                                                                                                                                   |
+| `site`                             | _optional_  | The Datadog site to send data to. If the `DD_SITE` environment variable is set, it takes precedence.                                                                                                                                |
+| `subdomain`                        | _optional_  | The name of the custom subdomain set to access your Datadog application. If the URL used to access Datadog is `myorg.datadoghq.com`, the `subdomain` value needs to be set to `myorg`.                                              |
+| `testSearchQuery`                  | _optional_  | Trigger tests corresponding to a [search][3005] query. This can be useful if you are tagging your test configurations. See [best practices][3007] for more information on tagging.                                                  |
+| `tunnel`                           | _optional_  | Enable [tunnel][3004] to interact with Datadog API.                                                                                                                                                                                 |
+| `variables`                        | _optional_  | Key-value pairs for injecting variables into tests. Must be formatted using `KEY=VALUE`.                                                                                                                                            |
 
 ## Further reading
 
@@ -166,7 +166,8 @@ Additional helpful documentation, links, and articles:
 - [Best practices for continuous testing with Datadog][5001]
 
 <!-- Links to Marketplace -->
-[1001]: https://marketplace.visualstudio.com/items?itemName=Datadog.datadog-ci
+[1001]: https://bitrise.io/integrations/steps/datadog-mobile-app-run-tests
+[1002]: https://bitrise.io/integrations/steps/datadog-mobile-app-upload
 
 <!-- Github links -->
 [2001]: https://github.com/DataDog/datadog-ci/blob/master/.github/workflows/e2e/global.config.json
