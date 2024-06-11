@@ -45,8 +45,8 @@ envs:
 ```yml
 - datadog-mobile-app-run-tests@1:
    inputs:
-   - api_key: $DATADOG_API_KEY
-   - app_key: $DATADOG_APP_KEY
+   - api_key: <DATADOG_API_KEY>
+   - app_key: <DATADOG_APP_KEY>
    - public_ids: 'abc-d3f-ghi, jkl-mn0-pqr'
 ```
 
@@ -55,8 +55,8 @@ envs:
 ```yaml
 - datadog-mobile-app-run-tests@1:
    inputs:
-   - api_key: $DATADOG_API_KEY
-   - app_key: $DATADOG_APP_KEY
+   - api_key: <DATADOG_API_KEY>
+   - app_key: <DATADOG_APP_KEY>
    - files: 'e2e-tests/*.synthetics.json'
 ```
 
@@ -69,8 +69,8 @@ For an example test file, see this [`test.synthetics.json` file][7].
 ```yml
 - datadog-mobile-app-run-tests@1:
    inputs:
-   - api_key: $DATADOG_API_KEY
-   - app_key: $DATADOG_APP_KEY
+   - api_key: <DATADOG_API_KEY>
+   - app_key: <DATADOG_APP_KEY>
    - test_search_query: 'tag:e2e-tests'
 ```
 
@@ -79,8 +79,8 @@ For an example test file, see this [`test.synthetics.json` file][7].
 ```yml
 - datadog-mobile-app-run-tests@1:
    inputs:
-   - api_key: $DATADOG_API_KEY
-   - app_key: $DATADOG_APP_KEY
+   - api_key: <DATADOG_API_KEY>
+   - app_key: <DATADOG_APP_KEY>
    - test_search_query: 'tag:e2e-tests'
    - variables: |
       START_URL=https://staging.website.com
@@ -94,8 +94,8 @@ This task overrides the path to the global `datadog-ci.config.json` file.
 ```yml
 - datadog-mobile-app-run-tests@1:
    inputs:
-   - api_key: $DATADOG_API_KEY
-   - app_key: $DATADOG_APP_KEY
+   - api_key: <DATADOG_API_KEY>
+   - app_key: <DATADOG_APP_KEY>
    - config_path: './synthetics-config.json'
 ```
 
@@ -108,8 +108,8 @@ For reference, this is an example of a complete configuration:
 ```yml
 - datadog-mobile-app-run-tests@1:
    inputs:
-   - api_key: $DATADOG_API_KEY
-   - app_key: $DATADOG_APP_KEY
+   - api_key: <DATADOG_API_KEY>
+   - app_key: <DATADOG_APP_KEY>
    - config_path: './global.config.json'
    - device_ids: 'apple iphone se (2022),15.4.1, apple iphone 14 pro,16.1'
    - fail_on_critical_errors: true
