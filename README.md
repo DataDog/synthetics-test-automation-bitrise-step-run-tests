@@ -122,7 +122,7 @@ For reference, this is an example of a complete configuration:
    - mobile_application_version_file_path: 'path/to/application.apk'
    - polling_timeout: 4200000
    - public_ids: 'abc-d3f-ghi, jkl-mn0-pqr'
-   - site: {{< region-param key="dd_site" code="true" >}}
+   - site: 'datadoghq.com'
    - subdomain: 'myorg'
    - test_search_query: 'tag:e2e-tests'
    - tunnel: true
@@ -149,7 +149,7 @@ For reference, this is an example of a complete configuration:
 | `mobileApplicationVersionFilePath` | _optional_  | Override the application version for [Synthetic mobile application tests][19].                                                                                                                                                            |
 | `pollingTimeout`                   | _optional_  | The duration (in milliseconds) after which the batch is deemed as failed because of a timeout. The default is 30 minutes.                                                                                                           |
 | `publicIds`                        | _optional_  | String of public IDs separated by commas for Synthetic tests you want to trigger.                                                                                                                                                   |
-| `site`                             | _optional_  | The [Datadog site][16] to send data to. If the `DD_SITE` environment variable is set, it takes precedence. Your default site is {{< region-param key="dd_site" code="true" >}}.                                                                                                                               |
+| `site`                             | _optional_  | The [Datadog site][16] to send data to. If the `DD_SITE` environment variable is set, it takes precedence. <!-- partial Your Datadog site is {{< region-param key="dd_site" code="true" >}}. partial -->.                                                                                                                               |
 | `subdomain`                        | _optional_  | The name of the custom subdomain set to access your Datadog application. If the URL used to access Datadog is `myorg.datadoghq.com`, the `subdomain` value needs to be set to `myorg`.                                              |
 | `testSearchQuery`                  | _optional_  | Trigger tests corresponding to a [search][12] query. This can be useful if you are tagging your test configurations. See [best practices][15] for more information on tagging.                                                  |
 | `tunnel`                           | _optional_  | Enable [Local and Staging Environments][14] to interact with the Datadog API.                                                                                                                                                                                 |
