@@ -18,7 +18,7 @@ To get started:
 
 ## How to use this step locally
 
-You can run this step directly using the [Bitrise CLI][2003].
+You can run this step directly using the [Bitrise CLI][6].
 
 To run this step locally:
 
