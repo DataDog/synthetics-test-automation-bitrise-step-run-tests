@@ -6,13 +6,19 @@
 
 ## Overview
 
-With the [`synthetics-test-automation-bitrise-step-run-tests` step][1], you can run Synthetic tests during your Bitrise CI, ensuring that all your teams using Bitrise can benefit from Synthetic tests at every stage of the software lifecycle. This step uses the [Datadog CI Synthetics command][2].
+With the `synthetics-test-automation-bitrise-step-run-tests` step, you can run Synthetic tests during your Bitrise CI, ensuring that all your teams using Bitrise can benefit from Synthetic tests at every stage of the software lifecycle. This step uses the [Datadog CI Synthetics command][2].
 
 ## Setup
 
+This step is not available on the official Bitrise Step Library.
 To get started:
 
-1. Add this step to your workflow. You can also configure it locally by referencing this step in your `bitrise.yml` file. For more information, see the [official Bitrise documentation][3].
+1. Add the following git URL to your workflow. See the [official Bitrise documentation][3] on how to do that though the Bitrise app. You can also configure it locally by referencing the git URL in your `bitrise.yml` file.
+
+```yml
+- git::https://github.com/DataDog/synthetics-test-automation-bitrise-step-run-tests.git:
+```
+
 2. Add your API and application keys to your [secrets in Bitrise][4].
 3. [Configure your step inputs][5]. You can also configure them in your `bitrise.yml` file. The only required inputs are the two secrets you configured earlier. For a comprehensive list of inputs, see the [Inputs section](#inputs).
 
@@ -41,9 +47,8 @@ envs:
 
 ### Example using public IDs
 
-<!-- TODO: change git urls to step references after we publish it -->
 ```yml
-- datadog-mobile-app-run-tests@1:
+- git::https://github.com/DataDog/synthetics-test-automation-bitrise-step-run-tests.git:
    inputs:
    - api_key: <DATADOG_API_KEY>
    - app_key: <DATADOG_APP_KEY>
@@ -53,7 +58,7 @@ envs:
 ### Example task using existing `synthetics.json` files
 
 ```yaml
-- datadog-mobile-app-run-tests@1:
+- git::https://github.com/DataDog/synthetics-test-automation-bitrise-step-run-tests.git:
    inputs:
    - api_key: <DATADOG_API_KEY>
    - app_key: <DATADOG_APP_KEY>
@@ -67,7 +72,7 @@ For an example test file, see this [`test.synthetics.json` file][7].
 ### Example task using the `testSearchQuery`
 
 ```yml
-- datadog-mobile-app-run-tests@1:
+- git::https://github.com/DataDog/synthetics-test-automation-bitrise-step-run-tests.git:
    inputs:
    - api_key: <DATADOG_API_KEY>
    - app_key: <DATADOG_APP_KEY>
@@ -77,7 +82,7 @@ For an example test file, see this [`test.synthetics.json` file][7].
 ### Example task using the `testSearchQuery` and variable overrides
 
 ```yml
-- datadog-mobile-app-run-tests@1:
+- git::https://github.com/DataDog/synthetics-test-automation-bitrise-step-run-tests.git:
    inputs:
    - api_key: <DATADOG_API_KEY>
    - app_key: <DATADOG_APP_KEY>
@@ -92,7 +97,7 @@ For an example test file, see this [`test.synthetics.json` file][7].
 This task overrides the path to the global `datadog-ci.config.json` file.
 
 ```yml
-- datadog-mobile-app-run-tests@1:
+- git::https://github.com/DataDog/synthetics-test-automation-bitrise-step-run-tests.git:
    inputs:
    - api_key: <DATADOG_API_KEY>
    - app_key: <DATADOG_APP_KEY>
@@ -106,7 +111,7 @@ For an example configuration file, see the [`global.config.json` file][8].
 For reference, this is an example of a complete configuration:
 
 ```yml
-- datadog-mobile-app-run-tests@1:
+- git::https://github.com/DataDog/synthetics-test-automation-bitrise-step-run-tests.git:
    inputs:
    - api_key: <DATADOG_API_KEY>
    - app_key: <DATADOG_APP_KEY>
@@ -165,7 +170,7 @@ Additional helpful documentation, links, and articles:
 
 [1]: https://bitrise.io/integrations/steps/datadog-mobile-app-run-tests
 [2]: https://docs.datadoghq.com/continuous_testing/cicd_integrations/configuration/?tab=npm#run-tests
-[3]: https://devcenter.bitrise.io/en/steps-and-workflows/introduction-to-steps/adding-steps-to-a-workflow.html
+[3]: https://devcenter.bitrise.io/en/steps-and-workflows/introduction-to-steps/adding-steps-to-a-workflow.html#adding-steps-from-alternative-sources
 [4]: https://devcenter.bitrise.io/en/builds/secrets.html#setting-a-secret
 [5]: https://devcenter.bitrise.io/en/steps-and-workflows/introduction-to-steps/step-inputs.html
 [6]: https://github.com/bitrise-io/bitrise
@@ -173,7 +178,7 @@ Additional helpful documentation, links, and articles:
 [8]: https://github.com/DataDog/datadog-ci/blob/master/.github/workflows/e2e/global.config.json
 [9]: https://docs.datadoghq.com/account_management/api-app-keys/
 [10]: https://docs.datadoghq.com/continuous_testing/cicd_integrations/configuration/?tab=npm#global-configuration-file-options
-[11]: https://bitrise.io/integrations/steps/datadog-mobile-app-upload
+[11]: https://github.com/DataDog/synthetics-test-automation-bitrise-step-upload-application
 [12]: https://docs.datadoghq.com/synthetics/search/#search
 [13]: https://docs.datadoghq.com/continuous_testing/cicd_integrations/configuration
 [14]: https://docs.datadoghq.com/continuous_testing/environments/multiple_env
