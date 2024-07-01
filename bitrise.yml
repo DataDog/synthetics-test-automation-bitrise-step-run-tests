@@ -31,7 +31,7 @@ workflows:
     steps:
     - activate-ssh-key@4: {}
     - git-clone@8: {}
-    - git::https://github.com/DataDog/synthetics-test-automation-bitrise-step-run-tests.git:
+    - path::./:
         inputs:
         - api_key: $DATADOG_API_KEY
         - app_key: $DATADOG_APP_KEY
@@ -45,7 +45,7 @@ workflows:
     steps:
     - activate-ssh-key@4: {}
     - git-clone@8: {}
-    - git::https://github.com/DataDog/synthetics-test-automation-bitrise-step-run-tests.git:
+    - path::./:
         inputs:
         - api_key: $DATADOG_API_KEY
         - app_key: $DATADOG_APP_KEY
