@@ -11,6 +11,7 @@ DIFF_ARGS="-u --label actual --label expected"
 @test 'Use custom parameters' {
     export api_key="DD_API_KEY"
     export app_key="DD_APP_KEY"
+    export batch_timeout="123"
     export config_path="./some/other/path.json"
     export device_ids="device1,device2"
     export fail_on_critical_errors=true
@@ -30,12 +31,13 @@ DIFF_ARGS="-u --label actual --label expected"
     export variables='START_URL=https://example.org,MY_VARIABLE="My title"'
     export DATADOG_CI_COMMAND="echo"
 
-    diff $DIFF_ARGS <(RunTests) <(echo synthetics run-tests --failOnCriticalErrors --failOnMissingTests --no-failOnTimeout --tunnel --config ./some/other/path.json --files test1.json --jUnitReport reports/TEST-1.xml --pollingTimeout 123 --public-id jak-not-now --public-id jak-one-mor --search apm --variable START_URL=https://example.org --variable MY_VARIABLE=\"My title\" --mobileApplicationVersion 1.4.2 --mobileApplicationVersionFilePath example/test.apk --device-id device1 --device-id device2)
+    diff $DIFF_ARGS <(RunTests) <(echo synthetics run-tests --failOnCriticalErrors --failOnMissingTests --no-failOnTimeout --tunnel --config ./some/other/path.json --files test1.json --jUnitReport reports/TEST-1.xml --batchTimeout 123 --pollingTimeout 123 --public-id jak-not-now --public-id jak-one-mor --search apm --variable START_URL=https://example.org --variable MY_VARIABLE=\"My title\" --mobileApplicationVersion 1.4.2 --mobileApplicationVersionFilePath example/test.apk --device-id device1 --device-id device2)
 }
 
 @test 'Use default parameters' {
     export api_key="DD_API_KEY"
     export app_key="DD_APP_KEY"
+    export batch_timeout=""
     export config_path=""
     export device_ids=""
     export fail_on_critical_errors=false
