@@ -50,7 +50,7 @@ inputs:
       is_expand: true
       is_required: true
       is_sensitive: true
-  - batchTimeout: 1800000
+  - batch_timeout: 1800000
     opts:
       category: Optional Inputs
       title: "Batch Timeout"
