@@ -74,7 +74,7 @@ jobs:
           script: |
             const body = `This PR was automatically created because a new version of datadog-ci was published.
 
-            In case the ci/bitrise check is failing, please go to the `Details` and then click `Rebuild` and rebuild the unsuccessful workflows.
+            In case the Bitrise CI check is failing, please follow the "Details" link in GitHub and then, in Bitrise, click "Rebuild" and choose "Rebuild unsuccessful Workflows".
 
             > [!IMPORTANT]
             > **You are not done!**
