@@ -62,7 +62,7 @@ You can see examples of past releases [here][8].
 
 ## Asking questions
 
-Need help? Contact [Datadog support](https://docs.datadoghq.com/help/).
+Need help? Contact [Datadog support][3].
 
 [1]: https://github.com/DataDog/synthetics-test-automation-bitrise-step-run-tests/issues
 [2]: https://github.com/DataDog/synthetics-test-automation-bitrise-step-run-tests/issues/new
