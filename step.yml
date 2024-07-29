@@ -54,7 +54,7 @@ inputs:
     opts:
       category: Optional Inputs
       title: "Batch Timeout"
-      description: The duration (in milliseconds) after which `datadog-ci` stops polling for test results. The default is 30 minutes. At the CI level, test results completed after this duration are considered failed.'
+      description: The duration (in milliseconds) after which `datadog-ci` stops waiting for test results. The default is 30 minutes. At the CI level, test results completed after this duration are considered failed.'
   - config_path: ''
     opts:
       category: Optional Inputs
@@ -109,7 +109,7 @@ inputs:
     opts:
       category: Optional Inputs
       title: "Polling Timeout"
-      description: '**DEPRECATED** The duration (in milliseconds) after which `datadog-ci` stops polling for test results. Please use `batchTimeout` instead.',
+      description: '**DEPRECATED** The duration (in milliseconds) after which `datadog-ci` stops polling for test results. Please use `batchTimeout` instead.'
   - public_ids: ''
     opts:
       category: Optional Inputs
