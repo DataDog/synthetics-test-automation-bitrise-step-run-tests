@@ -109,7 +109,7 @@ inputs:
     opts:
       category: Optional Inputs
       title: "Polling Timeout"
-      description: **DEPRECATED** The duration (in milliseconds) after which `datadog-ci` stops polling for test results. Please use `batchTimeout` instead.
+      description: '**DEPRECATED** The duration (in milliseconds) after which `datadog-ci` stops polling for test results. Please use `batchTimeout` instead.'
   - public_ids: ''
     opts:
       category: Optional Inputs
