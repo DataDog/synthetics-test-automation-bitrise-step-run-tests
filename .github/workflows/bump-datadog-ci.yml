@@ -3,16 +3,16 @@
 name: Bump Datadog CI
 
 env:
-  GIT_AUTHOR_EMAIL: 'packages@datadoghq.com'
-  GIT_AUTHOR_NAME: 'ci.datadog-ci'
+  GIT_AUTHOR_EMAIL: "packages@datadoghq.com"
+  GIT_AUTHOR_NAME: "ci.datadog-ci"
 
 on:
   workflow_dispatch:
     inputs:
       datadog_ci_version:
-        description: 'Version of datadog-ci to install (`latest` or `major.minor.patch`)'
+        description: "Version of datadog-ci to install (`latest` or `major.minor.patch`)"
         type: string
-        default: 'latest'
+        default: "latest"
 
 jobs:
   bump-datadog-ci:
@@ -73,6 +73,8 @@ jobs:
           github-token: ${{ steps.get-token.outputs.token }}
           script: |
             const body = `This PR was automatically created because a new version of datadog-ci was published.
+
+            In case the ci/bitrise check is failing, please go to the `Details` and then click `Rebuild` and rebuild the unsuccessful workflows.
 
             > [!IMPORTANT]
             > **You are not done!**

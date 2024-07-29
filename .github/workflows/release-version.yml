@@ -3,20 +3,20 @@
 name: Create Release PR
 
 env:
-  GIT_AUTHOR_EMAIL: 'packages@datadoghq.com'
-  GIT_AUTHOR_NAME: 'ci.datadog-ci'
+  GIT_AUTHOR_EMAIL: "packages@datadoghq.com"
+  GIT_AUTHOR_NAME: "ci.datadog-ci"
 
 on:
   workflow_dispatch:
     inputs:
       semver:
-        description: 'Semver argument for the version bump to do on the CI integration'
-        default: 'minor'
+        description: "Semver argument for the version bump to do on the CI integration"
+        default: "minor"
         type: choice
         options:
-          - 'patch'
-          - 'minor'
-          - 'major'
+          - "patch"
+          - "minor"
+          - "major"
 
 jobs:
   create-release-pr:
@@ -97,8 +97,7 @@ jobs:
             const body = `Once merged, this PR will automatically create a GitHub release for you.
             The description of the release will exactly match this PR's description. Feel free to edit it.
 
-            > [!WARNING]
-            > You now have to create a PR on https://github.com/bitrise-io/bitrise-steplib via our Datadog fork to officially publish the Bitrise step.
+            We publish the bitrise steps ourselves, so you don't have to do anything else.`
 
             github.rest.issues.createComment({
               owner: context.repo.owner,
