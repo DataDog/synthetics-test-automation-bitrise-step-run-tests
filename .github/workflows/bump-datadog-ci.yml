@@ -3,16 +3,16 @@
 name: Bump Datadog CI
 
 env:
-  GIT_AUTHOR_EMAIL: "packages@datadoghq.com"
-  GIT_AUTHOR_NAME: "ci.datadog-ci"
+  GIT_AUTHOR_EMAIL: 'packages@datadoghq.com'
+  GIT_AUTHOR_NAME: 'ci.datadog-ci'
 
 on:
   workflow_dispatch:
     inputs:
       datadog_ci_version:
-        description: "Version of datadog-ci to install (`latest` or `major.minor.patch`)"
+        description: 'Version of datadog-ci to install (`latest` or `major.minor.patch`)'
         type: string
-        default: "latest"
+        default: 'latest'
 
 jobs:
   bump-datadog-ci:
