@@ -97,8 +97,7 @@ jobs:
             const body = `Once merged, this PR will automatically create a GitHub release for you.
             The description of the release will exactly match this PR's description. Feel free to edit it.
 
-            > [!WARNING]
-            > You now have to create a PR on https://github.com/bitrise-io/bitrise-steplib via our Datadog fork to officially publish the Bitrise step.
+            The new version of the Bitrise step will be available to customers as soon as the GitHub release is published.`
 
             github.rest.issues.createComment({
               owner: context.repo.owner,

@@ -50,6 +50,9 @@ RunTests() {
     if [[ -n $polling_timeout ]]; then
         args+=(--pollingTimeout "${polling_timeout}")
     fi
+    if [[ -n $batch_timeout ]]; then
+        args+=(--batchTimeout "${batch_timeout}")
+    fi
     if [[ -n $public_ids ]]; then
         IFS=$'\n,'
         for public_id in ${public_ids}; do
