@@ -16,7 +16,7 @@ jobs:
         uses: actions/create-github-app-token@v1
         with:
           app-id: ${{ secrets.RELEASE_AUTOMATION_GITHUB_APP_ID }}
-          private_key: ${{ secrets.RELEASE_AUTOMATION_GITHUB_APP_PRIVATE_KEY }}
+          private-key: ${{ secrets.RELEASE_AUTOMATION_GITHUB_APP_PRIVATE_KEY }}
       - name: Create GitHub release
         uses: actions/github-script@v7
         with:
