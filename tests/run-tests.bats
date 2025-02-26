@@ -22,7 +22,6 @@ DIFF_ARGS="-u --label actual --label expected"
     export locations="aws:eu-west-1"
     export mobile_application_version="1.4.2"
     export mobile_application_version_file_path="example/test.apk"
-    export polling_timeout="123"
     export public_ids="jak-not-now,jak-one-mor"
     export site="datadoghq.eu"
     export subdomain="app1"
@@ -31,7 +30,7 @@ DIFF_ARGS="-u --label actual --label expected"
     export variables='START_URL=https://example.org,MY_VARIABLE="My title"'
     export DATADOG_CI_COMMAND="echo"
 
-    diff $DIFF_ARGS <(RunTests) <(echo synthetics run-tests --failOnCriticalErrors --failOnMissingTests --no-failOnTimeout --tunnel --config ./some/other/path.json --files test1.json --jUnitReport reports/TEST-1.xml --batchTimeout 123 --batchTimeout 123 --public-id jak-not-now --public-id jak-one-mor --search apm --variable START_URL=https://example.org --variable MY_VARIABLE=\"My title\" --mobileApplicationVersion 1.4.2 --mobileApplicationVersionFilePath example/test.apk --device-id device1 --device-id device2)
+    diff $DIFF_ARGS <(RunTests) <(echo synthetics run-tests --batchTimeout 123 --failOnCriticalErrors --failOnMissingTests --no-failOnTimeout --tunnel --config ./some/other/path.json --files test1.json --jUnitReport reports/TEST-1.xml --public-id jak-not-now --public-id jak-one-mor --search apm --variable START_URL=https://example.org --variable MY_VARIABLE=\"My title\" --mobileApplicationVersion 1.4.2 --mobileApplicationVersionFilePath example/test.apk --device-id device1 --device-id device2)
 }
 
 @test 'Use default parameters' {
@@ -48,7 +47,6 @@ DIFF_ARGS="-u --label actual --label expected"
     export locations=""
     export mobile_application_version=""
     export mobile_application_version_file_path=""
-    export polling_timeout=""
     export public_ids=""
     export site=""
     export subdomain=""

@@ -20,6 +20,9 @@ RunTests() {
     fi
 
     args=()
+    if [[ -n $batch_timeout ]]; then
+        args+=(--batchTimeout "${batch_timeout}")
+    fi
     if [[ $fail_on_critical_errors == "true" ]]; then
         args+=(--failOnCriticalErrors)
     fi
@@ -46,12 +49,6 @@ RunTests() {
     fi
     if [[ -n $junit_report ]]; then
         args+=(--jUnitReport "${junit_report}")
-    fi
-    if [[ -n $polling_timeout ]]; then
-        args+=(--batchTimeout "${polling_timeout}")
-    fi
-    if [[ -n $batch_timeout ]]; then
-        args+=(--batchTimeout "${batch_timeout}")
     fi
     if [[ -n $public_ids ]]; then
         IFS=$'\n,'
