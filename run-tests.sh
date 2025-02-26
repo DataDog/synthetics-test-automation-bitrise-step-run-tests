@@ -48,7 +48,7 @@ RunTests() {
         args+=(--jUnitReport "${junit_report}")
     fi
     if [[ -n $polling_timeout ]]; then
-        args+=(--pollingTimeout "${polling_timeout}")
+        args+=(--batchTimeout "${polling_timeout}")
     fi
     if [[ -n $batch_timeout ]]; then
         args+=(--batchTimeout "${batch_timeout}")
@@ -89,10 +89,10 @@ RunTests() {
     fi
 
     DATADOG_API_KEY="${api_key}" \
-    DATADOG_APP_KEY="${app_key}" \
-    DATADOG_SUBDOMAIN="${subdomain}" \
-    DATADOG_SITE="${site}" \
-    DATADOG_SYNTHETICS_CI_TRIGGER_APP="bitrise_step" \
+        DATADOG_APP_KEY="${app_key}" \
+        DATADOG_SUBDOMAIN="${subdomain}" \
+        DATADOG_SITE="${site}" \
+        DATADOG_SYNTHETICS_CI_TRIGGER_APP="bitrise_step" \
         $DATADOG_CI_COMMAND synthetics run-tests \
         "${args[@]}"
 }
