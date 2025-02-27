@@ -108,7 +108,7 @@ inputs:
     opts:
       category: Optional Inputs
       title: 'Synthetic test IDs'
-      description: String of test IDs separated by commas for Synthetic tests you want to trigger.
+      description: Public IDs of Synthetic tests to run, separated by new lines or commas. If no value is provided, tests are discovered in `*.synthetics.json` files.
   - site: 'datadoghq.com'
     opts:
       category: Optional Inputs
@@ -133,4 +133,4 @@ inputs:
     opts:
       category: Optional Inputs
       title: 'Variables'
-      description: Key-value pairs for injecting variables into tests. Must be formatted using `KEY=VALUE`.
+      description: 'Key-value pairs for injecting variables into tests, separated by newlines or commas. For example: `START_URL=https://example.org,MY_VARIABLE=My title`.'
