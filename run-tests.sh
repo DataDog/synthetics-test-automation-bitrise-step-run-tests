@@ -3,7 +3,7 @@ RunTests() {
         site=${DD_SITE}
     fi
 
-    DATADOG_CI_VERSION="2.48.0"
+    DATADOG_CI_VERSION="3.0.1"
 
     unamestr=$(uname)
 
@@ -20,6 +20,9 @@ RunTests() {
     fi
 
     args=()
+    if [[ -n $batch_timeout ]]; then
+        args+=(--batchTimeout "${batch_timeout}")
+    fi
     if [[ $fail_on_critical_errors == "true" ]]; then
         args+=(--failOnCriticalErrors)
     fi
@@ -46,12 +49,6 @@ RunTests() {
     fi
     if [[ -n $junit_report ]]; then
         args+=(--jUnitReport "${junit_report}")
-    fi
-    if [[ -n $polling_timeout ]]; then
-        args+=(--pollingTimeout "${polling_timeout}")
-    fi
-    if [[ -n $batch_timeout ]]; then
-        args+=(--batchTimeout "${batch_timeout}")
     fi
     if [[ -n $public_ids ]]; then
         IFS=$'\n,'
@@ -89,10 +86,10 @@ RunTests() {
     fi
 
     DATADOG_API_KEY="${api_key}" \
-    DATADOG_APP_KEY="${app_key}" \
-    DATADOG_SUBDOMAIN="${subdomain}" \
-    DATADOG_SITE="${site}" \
-    DATADOG_SYNTHETICS_CI_TRIGGER_APP="bitrise_step" \
+        DATADOG_APP_KEY="${app_key}" \
+        DATADOG_SUBDOMAIN="${subdomain}" \
+        DATADOG_SITE="${site}" \
+        DATADOG_SYNTHETICS_CI_TRIGGER_APP="bitrise_step" \
         $DATADOG_CI_COMMAND synthetics run-tests \
         "${args[@]}"
 }
