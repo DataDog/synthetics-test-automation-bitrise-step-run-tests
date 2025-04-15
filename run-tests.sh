@@ -3,7 +3,7 @@ RunTests() {
         site=${DD_SITE}
     fi
 
-    DATADOG_CI_VERSION="3.3.0"
+    DATADOG_CI_VERSION="3.4.0"
 
     unamestr=$(uname)
 
