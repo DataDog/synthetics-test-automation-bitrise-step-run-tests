@@ -5,13 +5,12 @@ jobs:
     name: build
     runs-on: ubuntu-latest
     steps:
-
       - name: Setup BATS
         uses: mig4/setup-bats@v1
         with:
           bats-version: 1.2.1
 
-      - name: Check out code
+      - name: Checkout code
         uses: actions/checkout@v4
 
       - name: Test
