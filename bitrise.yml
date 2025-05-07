@@ -1,25 +1,25 @@
-format_version: 4
+format_version: '4'
 default_step_lib_source: https://github.com/bitrise-io/bitrise-steplib.git
 
 app:
   envs:
-  - BITRISE_STEP_ID: datadog-mobile-app-run-tests
-  - BITRISE_STEP_VERSION: "1.0.1"
-  - BITRISE_STEP_GIT_CLONE_URL: https://github.com/DataDog/synthetics-test-automation-bitrise-step-run-tests.git
-  - MY_STEPLIB_REPO_FORK_GIT_URL: $MY_STEPLIB_REPO_FORK_GIT_URL
+    - BITRISE_STEP_ID: datadog-mobile-app-run-tests
+    - BITRISE_STEP_VERSION: '1.0.1'
+    - BITRISE_STEP_GIT_CLONE_URL: https://github.com/DataDog/synthetics-test-automation-bitrise-step-run-tests.git
+    - MY_STEPLIB_REPO_FORK_GIT_URL: $MY_STEPLIB_REPO_FORK_GIT_URL
 
 trigger_map:
-- push_branch: '*'
-  pipeline: test-on-Ubuntu-and-Xcode-stacks
+  - push_branch: '*'
+    pipeline: test-on-Ubuntu-and-Xcode-stacks
 pipelines:
   test-on-Ubuntu-and-Xcode-stacks:
     stages:
-    - test-stacks: {}
+      - test-stacks: {}
 stages:
   test-stacks:
     workflows:
-    - test-on-Ubuntu-stack: {}
-    - test-on-Xcode-stack: {}
+      - test-on-Ubuntu-stack: {}
+      - test-on-Xcode-stack: {}
 
 meta:
   bitrise.io:
@@ -32,13 +32,13 @@ workflows:
       bitrise.io:
         stack: linux-docker-android-22.04
     steps:
-    - activate-ssh-key@4: {}
-    - git-clone@8: {}
-    - path::./:
-        inputs:
-        - api_key: $DATADOG_API_KEY
-        - app_key: $DATADOG_APP_KEY
-        - public_ids: "7uk-gte-ywv"
+      - activate-ssh-key@4: {}
+      - git-clone@8: {}
+      - path::./:
+          inputs:
+            - api_key: $DATADOG_API_KEY
+            - app_key: $DATADOG_APP_KEY
+            - public_ids: '7uk-gte-ywv'
 
   test-on-Xcode-stack:
     meta:
@@ -46,24 +46,24 @@ workflows:
         stack: osx-xcode-edge
         machine_type_id: g2-m1.4core
     steps:
-    - activate-ssh-key@4: {}
-    - git-clone@8: {}
-    - path::/Users/vagrant/git:
-        inputs:
-        - api_key: $DATADOG_API_KEY
-        - app_key: $DATADOG_APP_KEY
-        - public_ids: "7uk-gte-ywv"
+      - activate-ssh-key@4: {}
+      - git-clone@8: {}
+      - path::/Users/vagrant/git:
+          inputs:
+            - api_key: $DATADOG_API_KEY
+            - app_key: $DATADOG_APP_KEY
+            - public_ids: '7uk-gte-ywv'
 
   # ----------------------------------------------------------------
   # --- workflows to Share this step into a Step Library
   audit-this-step:
     steps:
-    - script:
-        inputs:
-        - content: |-
-            #!/bin/bash
-            set -ex
-            stepman audit --step-yml ./step.yml
+      - script:
+          inputs:
+            - content: |-
+                #!/bin/bash
+                set -ex
+                stepman audit --step-yml ./step.yml
 
   share-this-step:
     envs:
@@ -93,13 +93,13 @@ workflows:
       Once it finishes the only thing left is to actually create a Pull Request,
       the way described in the guide printed at the end of the process.
     before_run:
-    - audit-this-step
+      - audit-this-step
     steps:
-    - script:
-        inputs:
-        - content: |-
-            #!/bin/bash
-            set -ex
-            bitrise share start -c "${MY_STEPLIB_REPO_FORK_GIT_URL}"
-            bitrise share create --stepid "${BITRISE_STEP_ID}" --tag "${BITRISE_STEP_VERSION}" --git "${BITRISE_STEP_GIT_CLONE_URL}"
-            bitrise share finish
+      - script:
+          inputs:
+            - content: |-
+                #!/bin/bash
+                set -ex
+                bitrise share start -c "${MY_STEPLIB_REPO_FORK_GIT_URL}"
+                bitrise share create --stepid "${BITRISE_STEP_ID}" --tag "${BITRISE_STEP_VERSION}" --git "${BITRISE_STEP_GIT_CLONE_URL}"
+                bitrise share finish
