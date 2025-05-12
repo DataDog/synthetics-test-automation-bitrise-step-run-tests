@@ -67,8 +67,8 @@ inputs:
   - fail_on_critical_errors: false
     opts:
       category: Optional Inputs
-      title: 'Fail on critical errors'
-      description: A boolean flag that fails the CI job if no tests were triggered, or results could not be fetched from Datadog.
+      title: 'Fail On Critical Errors'
+      description: Fail the CI job if a critical error that is typically transient occurs, such as rate limits, authentication failures, or Datadog infrastructure issues.
   - fail_on_missing_tests: false
     opts:
       category: Optional Inputs
