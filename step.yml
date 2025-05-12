@@ -63,7 +63,7 @@ inputs:
     opts:
       category: Optional Inputs
       title: 'Device IDs'
-      description: Override the mobile device(s) to run your mobile test.
+      description: Override the list of devices on which to run the Synthetic tests.
   - fail_on_critical_errors: false
     opts:
       category: Optional Inputs
