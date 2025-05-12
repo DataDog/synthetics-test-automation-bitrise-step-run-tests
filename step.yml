@@ -128,7 +128,7 @@ inputs:
     opts:
       category: Optional Inputs
       title: 'Tunnel'
-      description: Use the Continuous Testing Tunnel to execute your test batch.
+      description: Use the Continuous Testing tunnel to launch tests against internal environments.
   - variables: ''
     opts:
       category: Optional Inputs

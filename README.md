@@ -161,7 +161,7 @@ For more information on the available configuration, see the [`datadog-ci synthe
 | `site`                                 | Your Datadog site. The possible values are listed [in this table][16]. <br><sub>**Default:** `datadoghq.com`</sub>                                                                                                                                                                                               |
 | `subdomain`                            | The custom subdomain to access your Datadog organization. If the URL used to access Datadog is `myorg.datadoghq.com`, the custom subdomain is `myorg`. <br><sub>**Default:** `app`</sub>                                                                                                                         |
 | `test_search_query`                    | Use a [search query][12] to select which Synthetic tests to run. Use the [Synthetic Tests list page's search bar][15] to craft your query, then copy and paste it. <br><sub>**Default:** none</sub>                                                                                                              |
-| `tunnel`                               | Enable [Local and Staging Environments][14] to interact with the Datadog API. <br><sub>**Default:** `false`</sub>                                                                                                                                                                                                |
+| `tunnel`                               | Use the [Continuous Testing tunnel][14] to launch tests against internal environments. <br><sub>**Default:** `false`</sub>                                                                                                                                                                                       |
 | `variables`                            | Key-value pairs for injecting variables into tests, separated by newlines or commas. For example: `START_URL=https://example.org,MY_VARIABLE=My title`. <br><sub>**Default:** none</sub>                                                                                                                         |
 
 ## Further reading
@@ -183,7 +183,7 @@ Additional helpful documentation, links, and articles:
 [11]: https://github.com/DataDog/synthetics-test-automation-bitrise-step-upload-application
 [12]: https://docs.datadoghq.com/synthetics/search/#search
 [13]: https://docs.datadoghq.com/continuous_testing/cicd_integrations/configuration
-[14]: https://docs.datadoghq.com/continuous_testing/environments/multiple_env
+[14]: https://docs.datadoghq.com/continuous_testing/environments/proxy_firewall_vpn#what-is-the-testing-tunnel
 [15]: https://app.datadoghq.com/synthetics/tests
 [16]: https://docs.datadoghq.com/getting_started/site/#access-the-datadog-site
 [17]: https://docs.datadoghq.com/getting_started/continuous_testing/
