@@ -58,7 +58,7 @@ inputs:
     opts:
       category: Optional Inputs
       title: 'Global JSON configuration'
-      description: The global JSON configuration used when launching tests.
+      description: The path to the global configuration file that configures datadog-ci.
   - device_ids: ''
     opts:
       category: Optional Inputs
