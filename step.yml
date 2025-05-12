@@ -77,8 +77,8 @@ inputs:
   - fail_on_timeout: true
     opts:
       category: Optional Inputs
-      title: 'Fail on timeout'
-      description: A boolean flag that fails the CI job if at least one test exceeds the default test timeout.
+      title: 'Fail On Timeout'
+      description: Fail the CI job if the CI batch fails as timed out.
   - files: ''
     opts:
       category: Optional Inputs
