@@ -53,7 +53,7 @@ inputs:
     opts:
       category: Optional Inputs
       title: 'Batch Timeout'
-      description: The duration (in milliseconds) after which the batch fails as timed out.
+      description: The duration in milliseconds after which the CI batch fails as timed out. This does not affect the outcome of a test run that already started.
   - config_path: ''
     opts:
       category: Optional Inputs
