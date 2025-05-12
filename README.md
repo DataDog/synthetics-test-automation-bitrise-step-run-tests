@@ -160,7 +160,7 @@ For more information on the available configuration, see the [`datadog-ci synthe
 | `public_ids`                           | Public IDs of Synthetic tests to run, separated by new lines or commas. If no value is provided, tests are discovered in Synthetic [test configuration files][7]. <br><sub>**Default:** none</sub>                                                                                                               |
 | `site`                                 | Your Datadog site. The possible values are listed [in this table][16]. <br><sub>**Default:** `datadoghq.com`</sub>                                                                                                                                                                                               |
 | `subdomain`                            | The custom subdomain to access your Datadog organization. If the URL used to access Datadog is `myorg.datadoghq.com`, the custom subdomain is `myorg`. <br><sub>**Default:** `app`</sub>                                                                                                                         |
-| `test_search_query`                    | Trigger tests corresponding to a [search][12] query. This can be useful if you are tagging your test configurations. See [best practices][15] for more information on tagging. <br><sub>**Default:** none</sub>                                                                                                  |
+| `test_search_query`                    | Use a [search query][12] to select which Synthetic tests to run. Use the [Synthetic Tests list page's search bar][15] to craft your query, then copy and paste it. <br><sub>**Default:** none</sub>                                                                                                              |
 | `tunnel`                               | Enable [Local and Staging Environments][14] to interact with the Datadog API. <br><sub>**Default:** `false`</sub>                                                                                                                                                                                                |
 | `variables`                            | Key-value pairs for injecting variables into tests, separated by newlines or commas. For example: `START_URL=https://example.org,MY_VARIABLE=My title`. <br><sub>**Default:** none</sub>                                                                                                                         |
 
@@ -184,7 +184,7 @@ Additional helpful documentation, links, and articles:
 [12]: https://docs.datadoghq.com/synthetics/search/#search
 [13]: https://docs.datadoghq.com/continuous_testing/cicd_integrations/configuration
 [14]: https://docs.datadoghq.com/continuous_testing/environments/multiple_env
-[15]: https://docs.datadoghq.com/developers/guide/what-best-practices-are-recommended-for-naming-metrics-and-tags/#rules-and-best-practices-for-naming-tags
+[15]: https://app.datadoghq.com/synthetics/tests
 [16]: https://docs.datadoghq.com/getting_started/site/#access-the-datadog-site
 [17]: https://docs.datadoghq.com/getting_started/continuous_testing/
 [18]: https://www.datadoghq.com/blog/best-practices-datadog-continuous-testing/

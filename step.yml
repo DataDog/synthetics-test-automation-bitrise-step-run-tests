@@ -123,7 +123,7 @@ inputs:
     opts:
       category: Optional Inputs
       title: 'Test Search Query'
-      description: Pass a query to select which Synthetic tests to run.
+      description: Use a search query to select which Synthetic tests to run.
   - tunnel: false
     opts:
       category: Optional Inputs
