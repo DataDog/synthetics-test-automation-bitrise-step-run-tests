@@ -162,7 +162,7 @@ For more information on the available configuration, see the [`datadog-ci synthe
 | `subdomain`                            | The custom subdomain to access your Datadog organization. If the URL used to access Datadog is `myorg.datadoghq.com`, the custom subdomain is `myorg`. <br><sub>**Default:** `app`</sub>                                                                                                                         |
 | `test_search_query`                    | Use a [search query][12] to select which Synthetic tests to run. Use the [Synthetic Tests list page's search bar][15] to craft your query, then copy and paste it. <br><sub>**Default:** none</sub>                                                                                                              |
 | `tunnel`                               | Use the [Continuous Testing tunnel][14] to launch tests against internal environments. <br><sub>**Default:** `false`</sub>                                                                                                                                                                                       |
-| `variables`                            | Key-value pairs for injecting variables into tests, separated by newlines or commas. For example: `START_URL=https://example.org,MY_VARIABLE=My title`. <br><sub>**Default:** none</sub>                                                                                                                         |
+| `variables`                            | Override existing or inject new local and [global variables][21] in Synthetic tests as key-value pairs, separated by new lines or commas. For example: `START_URL=https://example.org,MY_VARIABLE=My title`. <br><sub>**Default:** none</sub>                                                                    |
 
 ## Further reading
 
@@ -190,3 +190,4 @@ Additional helpful documentation, links, and articles:
 [18]: https://www.datadoghq.com/blog/best-practices-datadog-continuous-testing/
 [19]: https://docs.datadoghq.com/synthetics/mobile_app_testing/
 [20]: https://app.datadoghq.com/api/v1/synthetics/locations?only_public=true
+[21]: https://docs.datadoghq.com/synthetics/platform/settings/?tab=specifyvalue#global-variables
