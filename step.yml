@@ -82,8 +82,8 @@ inputs:
   - files: ''
     opts:
       category: Optional Inputs
-      title: 'Synthetic test config files'
-      description: Glob pattern to detect Synthetic test configuration files.
+      title: 'Synthetic Test Configuration Files'
+      description: Glob patterns to detect Synthetic test configuration files, separated by new lines.
   - junit_report: ''
     opts:
       category: Optional Inputs
