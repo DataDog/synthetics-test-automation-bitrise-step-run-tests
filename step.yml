@@ -44,8 +44,8 @@ inputs:
   - app_key: $DATADOG_APP_KEY
     opts:
       category: Required Inputs
-      title: 'Datadog APP Key'
-      description: The application key used to query the Datadog API.
+      title: 'Datadog Application Key'
+      description: Your Datadog application key.
       is_expand: true
       is_required: true
       is_sensitive: true
