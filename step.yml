@@ -107,8 +107,8 @@ inputs:
   - public_ids: ''
     opts:
       category: Optional Inputs
-      title: 'Synthetic test IDs'
-      description: Public IDs of Synthetic tests to run, separated by new lines or commas. If no value is provided, tests are discovered in `*.synthetics.json` files.
+      title: 'Synthetic Test Public IDs'
+      description: Public IDs of Synthetic tests to run, separated by new lines or commas. If no value is provided, tests are discovered in Synthetic test configuration files.
   - site: 'datadoghq.com'
     opts:
       category: Optional Inputs
