@@ -6,7 +6,9 @@
 
 ## Overview
 
-With the `synthetics-test-automation-bitrise-step-run-tests` step, you can run Synthetic tests during your Bitrise CI, ensuring that all your teams using Bitrise can benefit from Synthetic tests at every stage of the software lifecycle. This step uses the [Datadog CI Synthetics command][2].
+With the `synthetics-test-automation-bitrise-step-run-tests` step, you can run Synthetic tests during your Bitrise CI, ensuring that all your teams using Bitrise can benefit from Synthetic tests at every stage of the software lifecycle.
+
+For more information on the available configuration, see the [`datadog-ci synthetics run-tests` documentation][2].
 
 ## Setup
 
@@ -96,17 +98,15 @@ For an example test file, see this [`test.synthetics.json` file][7].
 
 ### Example task using a global configuration override with `configPath`
 
-This task overrides the path to the global `datadog-ci.config.json` file.
+This task overrides the path to the global `global.config.json` file.
 
 ```yml
 - git::https://github.com/DataDog/synthetics-test-automation-bitrise-step-run-tests.git@v2.2.0:
    inputs:
    - api_key: <DATADOG_API_KEY>
    - app_key: <DATADOG_APP_KEY>
-   - config_path: './synthetics-config.json'
+   - config_path: './global.config.json'
 ```
-
-For an example configuration file, see the [`global.config.json` file][8].
 
 ### Example including all possible configurations
 
@@ -140,6 +140,8 @@ For reference, this is an example of a complete configuration:
 
 ## Inputs
 
+For more information on the available configuration, see the [`datadog-ci synthetics run-tests` documentation][2].
+
 | Name                                   | Description                                                                                                                                                                                                                                                        |
 | -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `api_key`                              | (**Required**) Your Datadog API key. This key is created by your [Datadog organization][9] and will be accessed as an environment variable.                                                                                                                        |
@@ -171,7 +173,7 @@ Additional helpful documentation, links, and articles:
 - [Best practices for continuous testing with Datadog][18]
 
 [1]: https://bitrise.io/integrations/steps/datadog-mobile-app-run-tests
-[2]: https://docs.datadoghq.com/continuous_testing/cicd_integrations/configuration/?tab=npm#run-tests
+[2]: https://docs.datadoghq.com/continuous_testing/cicd_integrations/configuration/?tab=npm#run-tests-command
 [3]: https://devcenter.bitrise.io/en/steps-and-workflows/introduction-to-steps/adding-steps-to-a-workflow.html#adding-steps-from-alternative-sources
 [4]: https://devcenter.bitrise.io/en/builds/secrets.html#setting-a-secret
 [5]: https://devcenter.bitrise.io/en/steps-and-workflows/introduction-to-steps/step-inputs.html
@@ -179,13 +181,13 @@ Additional helpful documentation, links, and articles:
 [7]: https://docs.datadoghq.com/continuous_testing/cicd_integrations/configuration/?tab=npm#test-files
 [8]: https://github.com/DataDog/datadog-ci/blob/master/.github/workflows/e2e/global.config.json
 [9]: https://docs.datadoghq.com/account_management/api-app-keys/
-[10]: https://docs.datadoghq.com/continuous_testing/cicd_integrations/configuration/?tab=npm#global-configuration-file-options
+[10]: https://docs.datadoghq.com/continuous_testing/cicd_integrations/configuration/?tab=npm#global-configuration-file
 [11]: https://github.com/DataDog/synthetics-test-automation-bitrise-step-upload-application
 [12]: https://docs.datadoghq.com/synthetics/search/#search
 [13]: https://docs.datadoghq.com/continuous_testing/cicd_integrations/configuration
 [14]: https://docs.datadoghq.com/continuous_testing/environments/multiple_env
 [15]: https://docs.datadoghq.com/developers/guide/what-best-practices-are-recommended-for-naming-metrics-and-tags/#rules-and-best-practices-for-naming-tags
-[16]: https://docs.datadoghq.com/getting_started/site/
+[16]: https://docs.datadoghq.com/getting_started/site/#access-the-datadog-site
 [17]: https://docs.datadoghq.com/getting_started/continuous_testing/
 [18]: https://www.datadoghq.com/blog/best-practices-datadog-continuous-testing/
 [19]: https://docs.datadoghq.com/synthetics/mobile_app_testing/
