@@ -172,14 +172,12 @@ Additional helpful documentation, links, and articles:
 - [Continuous Testing and CI/CD Configuration][13]
 - [Best practices for continuous testing with Datadog][18]
 
-[1]: https://bitrise.io/integrations/steps/datadog-mobile-app-run-tests
 [2]: https://docs.datadoghq.com/continuous_testing/cicd_integrations/configuration/?tab=npm#run-tests-command
 [3]: https://devcenter.bitrise.io/en/steps-and-workflows/introduction-to-steps/adding-steps-to-a-workflow.html#adding-steps-from-alternative-sources
 [4]: https://devcenter.bitrise.io/en/builds/secrets.html#setting-a-secret
 [5]: https://devcenter.bitrise.io/en/steps-and-workflows/introduction-to-steps/step-inputs.html
 [6]: https://github.com/bitrise-io/bitrise
 [7]: https://docs.datadoghq.com/continuous_testing/cicd_integrations/configuration/?tab=npm#test-files
-[8]: https://github.com/DataDog/datadog-ci/blob/master/.github/workflows/e2e/global.config.json
 [9]: https://docs.datadoghq.com/account_management/api-app-keys/
 [10]: https://docs.datadoghq.com/continuous_testing/cicd_integrations/configuration/?tab=npm#global-configuration-file
 [11]: https://github.com/DataDog/synthetics-test-automation-bitrise-step-upload-application
