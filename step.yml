@@ -98,12 +98,12 @@ inputs:
     opts:
       category: Optional Inputs
       title: 'Mobile Application Version'
-      description: Override the default mobile application version to test a different version within Datadog.
+      description: Override the mobile application version for Synthetic mobile application tests. The version must be uploaded and available within Datadog. You can use the Bitrise step to upload an application and use its `DATADOG_UPLOADED_APPLICATION_VERSION_ID` output here.
   - mobile_application_version_file_path: ''
     opts:
       category: Optional Inputs
       title: 'Mobile Application Version File Path'
-      description: Override the mobile application with a local or recently built application. You may use $BITRISE_IPA_PATH or $BITRISE_APK_PATH from your previous build steps.
+      description: Override the mobile application version for Synthetic mobile application tests with a local or recently built application. You may use `$BITRISE_IPA_PATH` or `$BITRISE_APK_PATH` from your previous build steps.
   - public_ids: ''
     opts:
       category: Optional Inputs
