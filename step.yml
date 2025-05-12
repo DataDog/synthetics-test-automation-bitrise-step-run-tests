@@ -72,8 +72,8 @@ inputs:
   - fail_on_missing_tests: false
     opts:
       category: Optional Inputs
-      title: 'Fail on missing tests'
-      description: Fail if at least one specified test with a public ID (using `public_ids` or listed in a test file) is missing in a run (for example, if it has been deleted programmatically or on the Datadog site).
+      title: 'Fail On Missing Tests'
+      description: Fail the CI job if the list of tests to run is empty or if some explicitly listed tests are missing.
   - fail_on_timeout: true
     opts:
       category: Optional Inputs
