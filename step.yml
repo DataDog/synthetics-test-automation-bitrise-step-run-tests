@@ -37,15 +37,15 @@ inputs:
     opts:
       category: Required Inputs
       title: 'Datadog API Key'
-      description: The API key used to query the Datadog API.
+      description: Your Datadog API key.
       is_expand: true
       is_required: true
       is_sensitive: true
   - app_key: $DATADOG_APP_KEY
     opts:
       category: Required Inputs
-      title: 'Datadog APP Key'
-      description: The application key used to query the Datadog API.
+      title: 'Datadog Application Key'
+      description: Your Datadog application key.
       is_expand: true
       is_required: true
       is_sensitive: true
@@ -53,37 +53,37 @@ inputs:
     opts:
       category: Optional Inputs
       title: 'Batch Timeout'
-      description: The duration (in milliseconds) after which the batch fails as timed out.
+      description: The duration in milliseconds after which the CI batch fails as timed out. This does not affect the outcome of a test run that already started.
   - config_path: ''
     opts:
       category: Optional Inputs
-      title: 'Global JSON configuration'
-      description: The global JSON configuration used when launching tests.
+      title: 'Global Configuration File'
+      description: The path to the global configuration file that configures datadog-ci.
   - device_ids: ''
     opts:
       category: Optional Inputs
       title: 'Device IDs'
-      description: Override the mobile device(s) to run your mobile test.
+      description: Override the list of devices on which to run the Synthetic tests.
   - fail_on_critical_errors: false
     opts:
       category: Optional Inputs
-      title: 'Fail on critical errors'
-      description: A boolean flag that fails the CI job if no tests were triggered, or results could not be fetched from Datadog.
+      title: 'Fail On Critical Errors'
+      description: Fail the CI job if a critical error that is typically transient occurs, such as rate limits, authentication failures, or Datadog infrastructure issues.
   - fail_on_missing_tests: false
     opts:
       category: Optional Inputs
-      title: 'Fail on missing tests'
-      description: Fail if at least one specified test with a public ID (using `public_ids` or listed in a test file) is missing in a run (for example, if it has been deleted programmatically or on the Datadog site).
+      title: 'Fail On Missing Tests'
+      description: Fail the CI job if the list of tests to run is empty or if some explicitly listed tests are missing.
   - fail_on_timeout: true
     opts:
       category: Optional Inputs
-      title: 'Fail on timeout'
-      description: A boolean flag that fails the CI job if at least one test exceeds the default test timeout.
+      title: 'Fail On Timeout'
+      description: Fail the CI job if the CI batch fails as timed out.
   - files: ''
     opts:
       category: Optional Inputs
-      title: 'Synthetic test config files'
-      description: Glob pattern to detect Synthetic test configuration files.
+      title: 'Synthetic Test Configuration Files'
+      description: Glob patterns to detect Synthetic test configuration files, separated by new lines.
   - junit_report: ''
     opts:
       category: Optional Inputs
@@ -93,44 +93,44 @@ inputs:
     opts:
       category: Optional Inputs
       title: 'Locations'
-      description: String of locations separated by semicolons to override the locations where your tests run.
+      description: Override the list of locations to run the test from.
   - mobile_application_version: ''
     opts:
       category: Optional Inputs
       title: 'Mobile Application Version'
-      description: Override the default mobile application version to test a different version within Datadog.
+      description: Override the mobile application version for Synthetic mobile application tests. The version must be uploaded and available within Datadog. You can use the Bitrise step to upload an application and use its `DATADOG_UPLOADED_APPLICATION_VERSION_ID` output here.
   - mobile_application_version_file_path: ''
     opts:
       category: Optional Inputs
       title: 'Mobile Application Version File Path'
-      description: Override the mobile application with a local or recently built application. You may use $BITRISE_IPA_PATH or $BITRISE_APK_PATH from your previous build steps.
+      description: Override the mobile application version for Synthetic mobile application tests with a local or recently built application. You may use `$BITRISE_IPA_PATH` or `$BITRISE_APK_PATH` from your previous build steps.
   - public_ids: ''
     opts:
       category: Optional Inputs
-      title: 'Synthetic test IDs'
-      description: Public IDs of Synthetic tests to run, separated by new lines or commas. If no value is provided, tests are discovered in `*.synthetics.json` files.
+      title: 'Synthetic Test Public IDs'
+      description: Public IDs of Synthetic tests to run, separated by new lines or commas. If no value is provided, tests are discovered in Synthetic test configuration files.
   - site: 'datadoghq.com'
     opts:
       category: Optional Inputs
       title: 'Datadog Site'
-      description: The Datadog site to send data to. If the `DD_SITE` environment variable is set, it takes preference.
+      description: Your Datadog site.
   - subdomain: 'app'
     opts:
       category: Optional Inputs
-      title: 'Custom subdomain'
-      description: The name of the custom subdomain set to access your Datadog application. If the URL used to access Datadog is `myorg.datadoghq.com`, the `subdomain` value needs to be set to `myorg`.
+      title: 'Custom Subdomain'
+      description: The custom subdomain to access your Datadog organization. If the URL used to access Datadog is `myorg.datadoghq.com`, the custom subdomain is `myorg`.
   - test_search_query: ''
     opts:
       category: Optional Inputs
       title: 'Test Search Query'
-      description: Pass a query to select which Synthetic tests to run.
+      description: Use a search query to select which Synthetic tests to run.
   - tunnel: false
     opts:
       category: Optional Inputs
       title: 'Tunnel'
-      description: Use the Continuous Testing Tunnel to execute your test batch.
+      description: Use the Continuous Testing tunnel to launch tests against internal environments.
   - variables: ''
     opts:
       category: Optional Inputs
       title: 'Variables'
-      description: 'Key-value pairs for injecting variables into tests, separated by newlines or commas. For example: `START_URL=https://example.org,MY_VARIABLE=My title`.'
+      description: 'Override existing or inject new local and global variables in Synthetic tests. For example: `START_URL=https://example.org,MY_VARIABLE=My title`.'
