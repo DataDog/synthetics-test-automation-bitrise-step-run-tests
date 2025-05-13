@@ -23,6 +23,7 @@ DIFF_ARGS="-u --label actual --label expected"
     export mobile_application_version="1.4.2"
     export mobile_application_version_file_path="example/test.apk"
     export public_ids="jak-not-now,jak-one-mor"
+    export selective_rerun="true"
     export site="datadoghq.eu"
     export subdomain="app1"
     export test_search_query="apm"
@@ -30,7 +31,7 @@ DIFF_ARGS="-u --label actual --label expected"
     export variables='START_URL=https://example.org,MY_VARIABLE="My title"'
     export DATADOG_CI_COMMAND="echo"
 
-    diff $DIFF_ARGS <(RunTests) <(echo synthetics run-tests --batchTimeout 123 --failOnCriticalErrors --failOnMissingTests --no-failOnTimeout --tunnel --config ./some/other/path.json --files test1.json --jUnitReport reports/TEST-1.xml --public-id jak-not-now --public-id jak-one-mor --search apm --variable START_URL=https://example.org --variable MY_VARIABLE=\"My title\" --mobileApplicationVersion 1.4.2 --mobileApplicationVersionFilePath example/test.apk --device-id device1 --device-id device2)
+    diff $DIFF_ARGS <(RunTests) <(echo synthetics run-tests --batchTimeout 123 --failOnCriticalErrors --failOnMissingTests --no-failOnTimeout --tunnel --config ./some/other/path.json --files test1.json --jUnitReport reports/TEST-1.xml --public-id jak-not-now --public-id jak-one-mor --selectiveRerun --search apm --variable START_URL=https://example.org --variable MY_VARIABLE=\"My title\" --mobileApplicationVersion 1.4.2 --mobileApplicationVersionFilePath example/test.apk --device-id device1 --device-id device2)
 }
 
 @test 'Use default parameters' {
@@ -48,6 +49,7 @@ DIFF_ARGS="-u --label actual --label expected"
     export mobile_application_version=""
     export mobile_application_version_file_path=""
     export public_ids=""
+    export selective_rerun=""
     export site=""
     export subdomain=""
     export test_search_query=""
@@ -71,4 +73,17 @@ DIFF_ARGS="-u --label actual --label expected"
 
     export files=$'file 1.json\nfile 2.json'
     diff $DIFF_ARGS <(RunTests) <(echo synthetics run-tests --no-failOnTimeout --files "file 1.json" --files "file 2.json")
+}
+
+@test 'Selective rerun is an optional boolean' {
+    export selective_rerun=""
+    export DATADOG_CI_COMMAND="echo"
+
+    diff $DIFF_ARGS <(RunTests) <(echo synthetics run-tests --no-failOnTimeout)
+
+    export selective_rerun="false"
+    diff $DIFF_ARGS <(RunTests) <(echo synthetics run-tests --no-failOnTimeout --no-selectiveRerun)
+
+    export selective_rerun="true"
+    diff $DIFF_ARGS <(RunTests) <(echo synthetics run-tests --no-failOnTimeout --selectiveRerun)
 }
