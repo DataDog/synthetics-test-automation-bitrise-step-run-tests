@@ -109,6 +109,12 @@ inputs:
       category: Optional Inputs
       title: 'Synthetic Test Public IDs'
       description: Public IDs of Synthetic tests to run, separated by new lines or commas. If no value is provided, tests are discovered in Synthetic test configuration files.
+  # This is an optional boolean parameter. In other CI integrations, we use `getDefinedBoolean()`.
+  - selective_rerun: ''
+    opts:
+      category: Optional Inputs
+      title: 'Selective Rerun'
+      description: Whether to only rerun failed tests. If a test has already passed for a given commit, it will not be rerun in subsequent CI batches. By default, your organization's default setting is used. Set it to `false` to force full runs when your configuration enables it by default.
   - site: 'datadoghq.com'
     opts:
       category: Optional Inputs

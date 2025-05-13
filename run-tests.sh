@@ -57,6 +57,11 @@ RunTests() {
         done
         unset IFS
     fi
+    if [[ $selective_rerun == "true" ]]; then
+        args+=(--selectiveRerun)
+    elif [[ $selective_rerun == "false" ]]; then
+        args+=(--no-selectiveRerun)
+    fi
     if [[ -n $test_search_query ]]; then
         args+=(--search "${test_search_query}")
     fi
