@@ -119,6 +119,7 @@ For reference, this is an example of a complete configuration:
    - app_key: <DATADOG_APP_KEY>
    - batch_timeout: 4200000
    - config_path: './global.config.json'
+   - datadog_site: 'datadoghq.com'
    - device_ids: 'apple iphone se (2022),15.4.1, apple iphone 14 pro,16.1'
    - fail_on_critical_errors: true
    - fail_on_missing_tests: true
@@ -130,7 +131,6 @@ For reference, this is an example of a complete configuration:
    - mobile_application_version_file_path: 'path/to/application.apk'
    - public_ids: 'abc-d3f-ghi,jkl-mn0-pqr'
    - selective_rerun: true
-   - site: 'datadoghq.com'
    - subdomain: 'myorg'
    - test_search_query: 'tag:e2e-tests'
    - tunnel: true
@@ -149,6 +149,7 @@ For more information on the available configuration, see the [`datadog-ci synthe
 | `app_key`                              | (**Required**) Your Datadog application key. This key is [created in your Datadog organization][9] and should be stored as a secret.                                                                                                                                                                              |
 | `batch_timeout`                        | The duration in milliseconds after which the CI batch fails as timed out. This does not affect the outcome of a test run that already started. <br><sub>**Default:** `1800000` (30 minutes)</sub>                                                                                                                 |
 | `config_path`                          | The path to the [global configuration file][10] that configures datadog-ci. <br><sub>**Default:** `datadog-ci.json`</sub>                                                                                                                                                                                         |
+| `datadog_site`                         | Your Datadog site. The possible values are listed [in this table][16].<!-- partial Your Datadog site is {{< region-param key="dd_site" code="true" >}}. partial --> <br><sub>**Default:** `datadoghq.com`</sub>                                                                                                   |
 | `device_ids`                           | Override the list of devices on which to run the Synthetic tests. <br><sub>**Default:** none</sub>                                                                                                                                                                                                                |
 | `fail_on_critical_errors`              | Fail the CI job if a critical error that is typically transient occurs, such as rate limits, authentication failures, or Datadog infrastructure issues. <br><sub>**Default:** `false`</sub>                                                                                                                       |
 | `fail_on_missing_tests`                | Fail the CI job if the list of tests to run is empty or if some explicitly listed tests are missing. <br><sub>**Default:** `false`</sub>                                                                                                                                                                          |
@@ -160,7 +161,6 @@ For more information on the available configuration, see the [`datadog-ci synthe
 | `mobile_application_version`           | Override the mobile application version for [Synthetic mobile application tests][19]. The version must be uploaded and available within Datadog. You can use the [Bitrise step to upload an application][11] and use its `DATADOG_UPLOADED_APPLICATION_VERSION_ID` output here. <br><sub>**Default:** none</sub>  |
 | `public_ids`                           | Public IDs of Synthetic tests to run, separated by new lines or commas. If no value is provided, tests are discovered in Synthetic [test configuration files][7]. <br><sub>**Default:** none</sub>                                                                                                                |
 | `selective_rerun`                      | Whether to only rerun failed tests. If a test has already passed for a given commit, it will not be rerun in subsequent CI batches. By default, your organization's default setting is used. Set it to `false` to force full runs when your configuration enables it by default. <br><sub>**Default:** none</sub> |
-| `site`                                 | Your Datadog site. The possible values are listed [in this table][16].<!-- partial Your Datadog site is {{< region-param key="dd_site" code="true" >}}. partial --> <br><sub>**Default:** `datadoghq.com`</sub>                                                                                                   |
 | `subdomain`                            | The custom subdomain to access your Datadog organization. If the URL used to access Datadog is `myorg.datadoghq.com`, the custom subdomain is `myorg`. <br><sub>**Default:** `app`</sub>                                                                                                                          |
 | `test_search_query`                    | Use a [search query][12] to select which Synthetic tests to run. Use the [Synthetic Tests list page's search bar][15] to craft your query, then copy and paste it. <br><sub>**Default:** none</sub>                                                                                                               |
 | `tunnel`                               | Use the [Continuous Testing tunnel][14] to launch tests against internal environments. <br><sub>**Default:** `false`</sub>                                                                                                                                                                                        |
