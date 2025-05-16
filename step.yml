@@ -37,7 +37,7 @@ inputs:
     opts:
       category: Required Inputs
       title: 'Datadog API Key'
-      description: Your Datadog API key.
+      description: Your Datadog API key. This key is [created in your Datadog organization](https://docs.datadoghq.com/account_management/api-app-keys/) and should be stored as a secret.
       is_expand: true
       is_required: true
       is_sensitive: true
@@ -45,7 +45,7 @@ inputs:
     opts:
       category: Required Inputs
       title: 'Datadog Application Key'
-      description: Your Datadog application key.
+      description: Your Datadog application key. This key is [created in your Datadog organization](https://docs.datadoghq.com/account_management/api-app-keys/) and should be stored as a secret.
       is_expand: true
       is_required: true
       is_sensitive: true
@@ -53,22 +53,23 @@ inputs:
     opts:
       category: Optional Inputs
       title: 'Batch Timeout'
-      description: The duration in milliseconds after which the CI batch fails as timed out. This does not affect the outcome of a test run that already started.
+      description: Specifies the timeout duration in milliseconds for the CI batch. When a batch times out, the CI job fails and no new test runs are triggered, but ongoing test runs complete normally.
   - config_path: ''
     opts:
       category: Optional Inputs
       title: 'Global Configuration File'
-      description: The path to the global configuration file that configures datadog-ci.
+      description: The path to the [global configuration file](https://docs.datadoghq.com/continuous_testing/cicd_integrations/configuration/?tab=npm#global-configuration-file) that configures datadog-ci.
   - datadog_site: 'datadoghq.com'
     opts:
       category: Optional Inputs
       title: 'Datadog Site'
-      description: Your Datadog site.
+      description: Your Datadog site. The possible values are listed [in this table](https://docs.datadoghq.com/getting_started/site/#access-the-datadog-site).
   - device_ids: ''
     opts:
       category: Optional Inputs
       title: 'Device IDs'
-      description: Override the list of devices on which to run the Synthetic tests.
+      # TODO: Change to new lines only.
+      description: Override the list of devices on which to run the Synthetic tests, separated by new lines or commas.
   - fail_on_critical_errors: false
     opts:
       category: Optional Inputs
@@ -88,7 +89,7 @@ inputs:
     opts:
       category: Optional Inputs
       title: 'Synthetic Test Configuration Files'
-      description: Glob patterns to detect Synthetic test configuration files, separated by new lines.
+      description: Glob patterns to detect Synthetic [test configuration files](https://docs.datadoghq.com/continuous_testing/cicd_integrations/configuration/?tab=npm#test-files), separated by new lines.
   - junit_report: ''
     opts:
       category: Optional Inputs
@@ -98,45 +99,46 @@ inputs:
     opts:
       category: Optional Inputs
       title: 'Locations'
-      description: Override the list of locations to run the test from.
+      # TODO: Change to new lines or commas.
+      description: Override the list of locations to run the test from. The possible values are listed [in this API response](https://app.datadoghq.com/api/v1/synthetics/locations?only_public=true), separated by semicolons.
   - mobile_application_version: ''
     opts:
       category: Optional Inputs
       title: 'Mobile Application Version'
-      description: Override the mobile application version for Synthetic mobile application tests. The version must be uploaded and available within Datadog. You can use the Bitrise step to upload an application and use its `DATADOG_UPLOADED_APPLICATION_VERSION_ID` output here.
+      description: Override the mobile application version for [Synthetic mobile application tests](https://docs.datadoghq.com/synthetics/mobile_app_testing/). The version must be uploaded and available within Datadog. You can use the [Bitrise step to upload an application](https://github.com/DataDog/synthetics-test-automation-bitrise-step-upload-application) and use its `DATADOG_UPLOADED_APPLICATION_VERSION_ID` output here.
   - mobile_application_version_file_path: ''
     opts:
       category: Optional Inputs
       title: 'Mobile Application Version File Path'
-      description: Override the mobile application version for Synthetic mobile application tests with a local or recently built application. You may use `$BITRISE_IPA_PATH` or `$BITRISE_APK_PATH` from your previous build steps.
+      description: Override the mobile application version for [Synthetic mobile application tests](https://docs.datadoghq.com/synthetics/mobile_app_testing/) with a local or recently built application. You may use `$BITRISE_IPA_PATH` or `$BITRISE_APK_PATH` from your previous build steps.
   - public_ids: ''
     opts:
       category: Optional Inputs
       title: 'Synthetic Test Public IDs'
-      description: Public IDs of Synthetic tests to run, separated by new lines or commas. If no value is provided, tests are discovered in Synthetic test configuration files.
+      description: Public IDs of Synthetic tests to run, separated by new lines or commas. If no value is provided, tests are discovered in Synthetic [test configuration files](https://docs.datadoghq.com/continuous_testing/cicd_integrations/configuration/?tab=npm#test-files).
   # This is an optional boolean parameter. In other CI integrations, we use `getDefinedBoolean()`.
   - selective_rerun: ''
     opts:
       category: Optional Inputs
       title: 'Selective Rerun'
-      description: Whether to only rerun failed tests. If a test has already passed for a given commit, it will not be rerun in subsequent CI batches. By default, your organization's default setting is used. Set it to `false` to force full runs when your configuration enables it by default.
+      description: Whether to only rerun failed tests. If a test has already passed for a given commit, it is not rerun in subsequent CI batches. By default, your [organization's default setting](https://app.datadoghq.com/synthetics/settings/continuous-testing) is used. Set it to `false` to force full runs when your configuration enables it by default.
   - subdomain: 'app'
     opts:
       category: Optional Inputs
       title: 'Custom Subdomain'
-      description: The custom subdomain to access your Datadog organization. If the URL used to access Datadog is `myorg.datadoghq.com`, the custom subdomain is `myorg`.
+      description: The custom subdomain to access your Datadog organization. If your URL is `myorg.datadoghq.com`, the custom subdomain is `myorg`.
   - test_search_query: ''
     opts:
       category: Optional Inputs
       title: 'Test Search Query'
-      description: Use a search query to select which Synthetic tests to run.
+      description: Use a [search query](https://docs.datadoghq.com/synthetics/explore/#search) to select which Synthetic tests to run. Use the [Synthetic Tests list page's search bar](https://app.datadoghq.com/synthetics/tests) to craft your query, then copy and paste it.
   - tunnel: false
     opts:
       category: Optional Inputs
       title: 'Tunnel'
-      description: Use the Continuous Testing tunnel to launch tests against internal environments.
+      description: Use the [Continuous Testing tunnel](https://docs.datadoghq.com/continuous_testing/environments/proxy_firewall_vpn#what-is-the-testing-tunnel) to launch tests against internal environments.
   - variables: ''
     opts:
       category: Optional Inputs
       title: 'Variables'
-      description: 'Override existing or inject new local and global variables in Synthetic tests. For example: `START_URL=https://example.org,MY_VARIABLE=My title`.'
+      description: 'Override existing or inject new local and [global variables](https://docs.datadoghq.com/synthetics/platform/settings/?tab=specifyvalue#global-variables) in Synthetic tests as key-value pairs, separated by new lines or commas. For example: `START_URL=https://example.org,MY_VARIABLE=My title`.'
