@@ -79,13 +79,14 @@ RunTests() {
         args+=(--mobileApplicationVersionFilePath "${mobile_application_version_file_path}")
     fi
     if [[ -n $device_ids ]]; then
-        IFS=$'\n,'
+        IFS=$'\n'
         for device_id in ${device_ids}; do
             args+=(--device-id "${device_id}")
         done
         unset IFS
     fi
 
+    # TODO(SYNTH-15739): Change to new lines or commas.
     if [[ -n $locations ]]; then
         export DATADOG_SYNTHETICS_LOCATIONS="${locations}"
     fi
