@@ -68,8 +68,7 @@ inputs:
     opts:
       category: Optional Inputs
       title: 'Device IDs'
-      # TODO: Change to new lines only.
-      description: Override the list of devices on which to run the Synthetic tests, separated by new lines or commas.
+      description: Override the list of devices on which to run the Synthetic tests, separated by new lines.
   - fail_on_critical_errors: false
     opts:
       category: Optional Inputs
@@ -99,7 +98,7 @@ inputs:
     opts:
       category: Optional Inputs
       title: 'Locations'
-      # TODO: Change to new lines or commas.
+      # TODO(SYNTH-15739): Change to new lines or commas.
       description: Override the list of locations to run the test from. The possible values are listed [in this API response](https://app.datadoghq.com/api/v1/synthetics/locations?only_public=true), separated by semicolons.
   - mobile_application_version: ''
     opts:
