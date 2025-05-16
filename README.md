@@ -120,7 +120,9 @@ For reference, this is an example of a complete configuration:
    - batch_timeout: 4200000
    - config_path: './global.config.json'
    - datadog_site: 'datadoghq.com'
-   - device_ids: 'apple iphone se (2022),15.4.1, apple iphone 14 pro,16.1'
+   - device_ids: |
+      apple iphone se (2022),15.4.1
+      apple iphone 14 pro,16.1
    - fail_on_critical_errors: true
    - fail_on_missing_tests: true
    - fail_on_timeout: true
