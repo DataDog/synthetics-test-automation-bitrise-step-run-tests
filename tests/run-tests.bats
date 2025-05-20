@@ -31,7 +31,7 @@ DIFF_ARGS="-u --label actual --label expected"
     export variables='START_URL=https://example.org,MY_VARIABLE="My title"'
     export DATADOG_CI_COMMAND="echo"
 
-    diff $DIFF_ARGS <(RunTests) <(echo synthetics run-tests --batchTimeout 123 --failOnCriticalErrors --failOnMissingTests --no-failOnTimeout --tunnel --config ./some/other/path.json --files test1.json --jUnitReport reports/TEST-1.xml --public-id jak-not-now --public-id jak-one-mor --selectiveRerun --search apm --variable START_URL=https://example.org --variable MY_VARIABLE=\"My title\" --mobileApplicationVersion 1.4.2 --mobileApplicationVersionFilePath example/test.apk --device-id device1 --device-id device2)
+    diff $DIFF_ARGS <(RunTests) <(echo synthetics run-tests --batchTimeout 123 --failOnCriticalErrors --failOnMissingTests --no-failOnTimeout --tunnel --config ./some/other/path.json --files test1.json --jUnitReport reports/TEST-1.xml --override locations="aws:eu-west-1" --public-id jak-not-now --public-id jak-one-mor --selectiveRerun --search apm --variable START_URL=https://example.org --variable MY_VARIABLE=\"My title\" --mobileApplicationVersion 1.4.2 --mobileApplicationVersionFilePath example/test.apk --device-id device1 --device-id device2)
 }
 
 @test 'Use default parameters' {
@@ -86,4 +86,14 @@ DIFF_ARGS="-u --label actual --label expected"
 
     export selective_rerun="true"
     diff $DIFF_ARGS <(RunTests) <(echo synthetics run-tests --no-failOnTimeout --selectiveRerun)
+}
+
+@test 'Support spaces and commas in locations' {
+    export DATADOG_CI_COMMAND="echo"
+
+    export locations="aws:eu-west-1,aws:eu-west-2"
+    diff $DIFF_ARGS <(RunTests) <(echo synthetics run-tests --no-failOnTimeout --override locations="aws:eu-west-1;aws:eu-west-2")
+
+    export locations=$'aws:eu-west-1\naws:eu-west-2'
+    diff $DIFF_ARGS <(RunTests) <(echo synthetics run-tests --no-failOnTimeout --override locations="aws:eu-west-1;aws:eu-west-2")
 }

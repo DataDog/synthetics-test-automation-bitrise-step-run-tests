@@ -50,6 +50,17 @@ RunTests() {
     if [[ -n $junit_report ]]; then
         args+=(--jUnitReport "${junit_report}")
     fi
+    if [[ -n $locations ]]; then
+        # Split by new lines or commas.
+        IFS=$'\n,'
+        temp_locations=()
+        for location in ${locations}; do
+            temp_locations+=("${location}")
+        done
+        unset IFS
+        # Join the array with `;` as a separator.
+        args+=(--override locations="$(IFS=';' && echo "${temp_locations[*]}")")
+    fi
     if [[ -n $public_ids ]]; then
         IFS=$'\n,'
         for public_id in ${public_ids}; do
@@ -84,11 +95,6 @@ RunTests() {
             args+=(--device-id "${device_id}")
         done
         unset IFS
-    fi
-
-    # TODO(SYNTH-15739): Change to new lines or commas.
-    if [[ -n $locations ]]; then
-        export DATADOG_SYNTHETICS_LOCATIONS="${locations}"
     fi
 
     DATADOG_API_KEY="${api_key}" \
