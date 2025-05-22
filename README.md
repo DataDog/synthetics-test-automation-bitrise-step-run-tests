@@ -24,26 +24,7 @@ To get started:
 2. Add your API and application keys to your [secrets in Bitrise][4].
 3. [Configure your step inputs][5]. You can also configure them in your `bitrise.yml` file. The only required inputs are the two secrets you configured earlier. For a comprehensive list of inputs, see the [Inputs section](#inputs).
 
-## How to use this step locally
-
-You can run this step directly using the [Bitrise CLI][6].
-
-To run this step locally:
-
-1. Open your terminal or command line.
-2. `git clone` the [Bitrise repository][6].
-3. `cd` into the directory of the step (the one you just `git clone`d).
-4. Create a `.bitrise.secrets.yml` file in the same directory of `bitrise.yml`. The `.bitrise.secrets.yml` file is a Git-ignored file, so you can store your secrets in it.
-5. Check the `bitrise.yml` file for any secret you should set in `.bitrise.secrets.yml`.
-6. Once you have the required secret parameters in your `.bitrise.secrets.yml` file, run this step with the [Bitrise CLI][6]: `bitrise run test`.
-
-An example `.bitrise.secrets.yml` file:
-
-```yml
-envs:
-- A_SECRET_PARAM_ONE: the value for secret one
-- A_SECRET_PARAM_TWO: the value for secret two
-```
+When running the step locally with the Bitrise CLI, the secrets should be stored in a `.bitrise.secrets.yml` file. See [Managing secrets locally][6].
 
 ## Simple usage
 
@@ -180,7 +161,7 @@ Additional helpful documentation, links, and articles:
 [3]: https://devcenter.bitrise.io/en/steps-and-workflows/introduction-to-steps/adding-steps-to-a-workflow.html#adding-steps-from-alternative-sources
 [4]: https://devcenter.bitrise.io/en/builds/secrets.html#setting-a-secret
 [5]: https://devcenter.bitrise.io/en/steps-and-workflows/introduction-to-steps/step-inputs.html
-[6]: https://github.com/bitrise-io/bitrise
+[6]: https://devcenter.bitrise.io/en/bitrise-cli/managing-secrets-locally.html
 [7]: https://docs.datadoghq.com/continuous_testing/cicd_integrations/configuration/?tab=npm#test-files
 [9]: https://docs.datadoghq.com/account_management/api-app-keys/
 [10]: https://docs.datadoghq.com/continuous_testing/cicd_integrations/configuration/?tab=npm#global-configuration-file
