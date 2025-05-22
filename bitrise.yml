@@ -1,6 +1,10 @@
 format_version: '4'
 default_step_lib_source: https://github.com/bitrise-io/bitrise-steplib.git
 
+app:
+  envs:
+    - FORCE_COLOR: 1
+
 trigger_map:
   - push_branch: '*'
     pipeline: test-on-Ubuntu-and-Xcode-stacks
