@@ -18,7 +18,7 @@ To get started:
 1. Add the following git URL to your workflow. See the [official Bitrise documentation][3] on how to do that though the Bitrise app. You can also configure it locally by referencing the git URL in your `bitrise.yml` file.
 
 ```yml
-- git::https://github.com/DataDog/synthetics-test-automation-bitrise-step-run-tests.git@v3.4.0:
+- git::https://github.com/DataDog/synthetics-test-automation-bitrise-step-run-tests.git@v3.5.0:
 ```
 
 2. Add your API and application keys to your [secrets in Bitrise][4].
@@ -31,7 +31,7 @@ When running the step locally with the Bitrise CLI, the secrets should be stored
 ### Example using public IDs
 
 ```yml
-- git::https://github.com/DataDog/synthetics-test-automation-bitrise-step-run-tests.git@v3.4.0:
+- git::https://github.com/DataDog/synthetics-test-automation-bitrise-step-run-tests.git@v3.5.0:
    inputs:
    - api_key: <DATADOG_API_KEY>
    - app_key: <DATADOG_APP_KEY>
@@ -43,7 +43,7 @@ When running the step locally with the Bitrise CLI, the secrets should be stored
 ### Example task using existing `synthetics.json` files
 
 ```yaml
-- git::https://github.com/DataDog/synthetics-test-automation-bitrise-step-run-tests.git@v3.4.0:
+- git::https://github.com/DataDog/synthetics-test-automation-bitrise-step-run-tests.git@v3.5.0:
    inputs:
    - api_key: <DATADOG_API_KEY>
    - app_key: <DATADOG_APP_KEY>
@@ -57,7 +57,7 @@ For an example test file, see this [`test.synthetics.json` file][7].
 ### Example task using the `testSearchQuery`
 
 ```yml
-- git::https://github.com/DataDog/synthetics-test-automation-bitrise-step-run-tests.git@v3.4.0:
+- git::https://github.com/DataDog/synthetics-test-automation-bitrise-step-run-tests.git@v3.5.0:
    inputs:
    - api_key: <DATADOG_API_KEY>
    - app_key: <DATADOG_APP_KEY>
@@ -67,7 +67,7 @@ For an example test file, see this [`test.synthetics.json` file][7].
 ### Example task using the `testSearchQuery` and variable overrides
 
 ```yml
-- git::https://github.com/DataDog/synthetics-test-automation-bitrise-step-run-tests.git@v3.4.0:
+- git::https://github.com/DataDog/synthetics-test-automation-bitrise-step-run-tests.git@v3.5.0:
    inputs:
    - api_key: <DATADOG_API_KEY>
    - app_key: <DATADOG_APP_KEY>
@@ -82,7 +82,7 @@ For an example test file, see this [`test.synthetics.json` file][7].
 This task overrides the path to the global `global.config.json` file.
 
 ```yml
-- git::https://github.com/DataDog/synthetics-test-automation-bitrise-step-run-tests.git@v3.4.0:
+- git::https://github.com/DataDog/synthetics-test-automation-bitrise-step-run-tests.git@v3.5.0:
    inputs:
    - api_key: <DATADOG_API_KEY>
    - app_key: <DATADOG_APP_KEY>
@@ -94,7 +94,7 @@ This task overrides the path to the global `global.config.json` file.
 For reference, this is an example of a complete configuration:
 
 ```yml
-- git::https://github.com/DataDog/synthetics-test-automation-bitrise-step-run-tests.git@v3.4.0:
+- git::https://github.com/DataDog/synthetics-test-automation-bitrise-step-run-tests.git@v3.5.0:
    inputs:
    - api_key: <DATADOG_API_KEY>
    - app_key: <DATADOG_APP_KEY>
